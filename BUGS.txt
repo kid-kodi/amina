@@ -1,0 +1,42 @@
+- dashboard
+ - implementer
+
+- home
+ - par defaut charger les clients du jour ok
+ - nouveau client
+  - lorsque le bouton enregistrer est cliqué désactiver le. ok
+  - verifier que le client n'a pas été enregistré au préalable ok
+ - liste des clients
+  - bouton actualiser à mettre à jour selon le filter_map ok
+ - liste des commandes
+  - par default actualiser filter_map ok
+  - utiliser la fonction filter by (filtre à mettre à jour selon le onchagnhe) ok
+  - ajouter l'option de recherche ok
+ - formulaire de commande
+  - lorsque le bouton enregistrer est cliqué désactiver le. ok
+  - mettre à jour le formulaire (Achat de milieux de culture) ok
+  - lorsque on supprime une analyse verifier que le nombre d'analyse par facture est > 0 ok
+
+- admin
+ - ajouter les autres options dans la liste (analyse)
+ - liste des utilisateurs
+ - actualiser le design de la liste
+ - enlever les filtres
+
+- rapport
+ - finance
+  - ajouter une selection de date
+- profile
+ - ajouter les tabulation
+ 1) changer mot de passe
+  - verification mot de passe
+  - nouveau mot de passe (Comme module auth)
+ 2) changer Avatar
+ 3) changer information
+
+ AMELIORATION
+ - séparer les différentes entitées dans la bd
+ 1) client
+ 2) commandes
+ 3) factures
+ 4) analyses demandé

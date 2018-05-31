@@ -1,0 +1,88 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.supplier.name}}</h3>
+			<a href="#/supplier">back to supplier list</a>
+		</div>
+		<div>
+			<button class="btn btn-secondary" ng-click="$ctrl.editMode = true">Modifier</button>
+			<a class="btn btn-success" href="#/supplier/{{$ctrl.supplier._id}}/expense/0">New expense</a>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Transaction List">
+	    <div ng-show="$ctrl.expenses.length > 0">
+		    <table class="table">
+				<thead class="thead-ligth">
+					<tr>
+						<th>Date</th>
+						<th>NO.</th>
+						<th>Balance</th>
+						<th>Amount</th>
+						<th>Status</th>
+						<th class="last">
+							Action
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in $ctrl.expenses | filter:$ctrl.search">
+						<td>{{c.created_at}}</td>
+						<td>{{c.number}}</td>
+						<td>{{c.balance}} F.CFA</td>
+						<td>{{c.amount}} F.CFA</td>
+						<td>
+							<b ng-show="c.status==0">Pending</b>
+							<b ng-show="c.status==1">Paid</b>
+							<b ng-show="c.status==2">Cancelled</b>
+						</td>
+						<td class="last">
+							<a ng-show="c.status==0" href="#/supplier/{{c.supplier_id}}/expense/{{c._id}}">Edit</a>
+							<a ng-show="c.status==1" href="" ng-click="$ctrl.printExpense( c )">Print</a>
+							<a ng-show="c.status==2" href="#/supplier/{{c.supplier_id}}/expense/{{c._id}}">Dismissed</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	    </div>
+	    <div ng-show="$ctrl.expenses.length == 0">
+			<h1>No expenses</h1>
+		</div>
+
+	  </my-pane>
+	  <my-pane title="Supplier details">
+	    <div class="container">
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">First name</div>
+	    		<div class="col-sm-10">{{$ctrl.supplier.first_name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Last name</div>
+	    		<div class="col-sm-10">{{$ctrl.supplier.last_name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Company name</div>
+	    		<div class="col-sm-10">{{$ctrl.supplier.name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Email</div>
+	    		<div class="col-sm-10">{{$ctrl.supplier.email}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Telephone</div>
+	    		<div class="col-sm-10">{{$ctrl.supplier.phone}}</div>
+	    	</div>
+	    </div>
+	  </my-pane>
+	</my-tabs>
+</div>
+
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<supplier-edit 
+		supplier="$ctrl.supplier" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( supplier )"></supplier-edit>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="panel">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8">
+				<h1>Hi, {{$ctrl.user.name}}</h1>
+			</div>
+		</div>
+		<h3>Incomes</h3>
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		      	<h3>{{$ctrl.net_incomes | number}} F.CFA</h3>
+				<p>NET INCOMES</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <h3>{{$ctrl.incomes | number}} F.CFA</h3>
+				<p>INCOMES</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<h3>Expenses</h3>
+		<div class="row">
+		  <div class="col-sm-4">
+		    <div class="card">
+		      <div class="card-body">
+		        <h3>{{$ctrl.expenses | number}} F.CFA</h3>
+				<p>EXPENSES</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>

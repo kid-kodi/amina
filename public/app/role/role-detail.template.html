@@ -1,0 +1,52 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h1>{{$ctrl.role.name}}</h1>
+		</div>
+		<div>
+			<button ng-click="$ctrl.editRole()">Modifier</button>
+			<button ng-click="$ctrl.close()">Fermer</button>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Users List">
+	    <div ng-show="$ctrl.users.length > 0">
+		    <table>
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Role</th>
+						<th>Téléphone</th>
+						<th>Email</th>
+						<th class="last">
+							Action
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in $ctrl.users | filter:$ctrl.search">
+						<td>
+							<a href="" ng-click="$ctrl.gotoUser( c )">	
+								{{c.name}}
+							</a>
+						</td>
+						<td>{{c.role_name}}</td>
+						<td>{{c.phone}}</td>
+						<td>{{c.email}}</td>
+						<td class="last">
+							<button ng-click="$ctrl.editUser( c )">Edit</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	    </div>
+	    <div ng-show="$ctrl.users.length == 0">
+			<h1>No users</h1>
+		</div>
+
+	  </my-pane>
+	  <my-pane title="Role details">
+	    <p>Mauris elementum elementum enim at suscipit.</p>
+	  </my-pane>
+	</my-tabs>
+</div>

@@ -1,0 +1,20 @@
+<header class="bar">
+  <div class="logo">
+      <h1>AMINA</h1>
+  </div>
+  <ul class="nav justify-content-end">
+    <li class="nav-item" ng-show="$ctrl.role.sysadmin == true">
+      <a class="nav-link" href="#/setting">
+        <i class="fa fa-cog"></i>
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">{{$ctrl.user.email}}</a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#/profil">Your pofile</a>
+        <a class="dropdown-item" href="#/user">Users & roles</a>
+        <a class="dropdown-item" href="/">Logout</a>
+      </div>
+    </li>
+  </ul>
+</header>

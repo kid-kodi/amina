@@ -1,0 +1,15 @@
+.spa-home{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  background: #fff;
+}
+.spa-home .home-card{
+  margin: 10px;
+  background: #e8e8e8;
+  padding: 10px 14px;
+  align-self: flex-start;
+}

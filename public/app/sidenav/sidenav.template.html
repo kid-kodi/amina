@@ -1,0 +1,7 @@
+<nav>
+	<ul class="nav flex-column">
+		<li ng-class="{'active': p._id == $ctrl.activeItem}" ng-click="$ctrl.activeItem=p._id" class="nav-item" ng-repeat="p in $ctrl.permissions | orderBy:'sequence'">
+		    <a class="nav-link" href="{{p.url}}">{{p.name}}</a>
+		</li>
+	</ul>	
+</nav>

@@ -1,0 +1,53 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<h1>Setting</h1>
+	</div>
+	<div class="bar">
+		<input type="text" placeholder="Search a setting" ng-model="$ctrl.search">
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th class="last">
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+				<td>
+					<a href="" ng-click="$ctrl.gotoSetting( c )">	
+						{{c.name}}
+					</a>
+				</td>
+				<td class="last">
+					<button ng-click="$ctrl.editSetting( c )">Edit</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<h1>No settings</h1>
+	<button ng-click="$ctrl.editSetting()">New</button>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<setting-edit 
+		setting="$ctrl.setting" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( setting )"></setting-edit>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.detailMode">
+	<div ng-switch-when="true">
+		<setting-detail 
+		setting="$ctrl.setting" 
+		on-close="$ctrl.detailMode = false"
+		on-edit="$ctrl.editSetting( setting )"></setting-detail>
+	</div>
+</div>

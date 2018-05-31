@@ -1,0 +1,60 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">Settings</h3>
+		</div>
+		<div>
+			<button ng-show="$ctrl.editMode==false" class="btn" ng-click="$ctrl.editMode=!$ctrl.editMode">
+				Modifier
+			</button>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Company information">
+	  	<div class="container">
+		    <div class="form-group row">
+				<label class="col-sm-2 col-form-label">Company name</label>
+				<div class="col-sm-10">
+					<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="text" name="name" ng-model="$ctrl.setting.company_name" required>
+					<div ng-show="form.name.$touched && form.name.$invalid">
+						<span ng-show="form.name.$error.required">Setting name is required</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Adresse information</label>
+				<div class="col-sm-10">
+					<textarea ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" rows="5" name="adresse" ng-model="$ctrl.setting.adresse" required>
+					</textarea>
+					<div ng-show="form.adresse.$touched && form.adresse.$invalid">
+						<span ng-show="form.adresse.$error.required">adresse is required</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Téléphone</label>
+				<div class="col-sm-10">
+					<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="text" name="phone" ng-model="$ctrl.setting.phone" maxlength="8" required>
+					<div ng-show="form.phone.$touched && form.phone.$invalid">
+						<span ng-show="form.phone.$error.required">Setting phone number is required</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-10">
+					<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="email" name="email" ng-model="$ctrl.setting.email" required>
+					<div ng-show="form.email.$touched && form.email.$invalid">
+						<span ng-show="form.email.$error.required">Setting email adresse is required</span>
+						<span ng-show="form.email.$error.email">Valid email adresse is required</span>
+					</div>
+				</div>
+			</div>
+	  	</div>
+
+	  </my-pane>
+	</my-tabs>
+	<div ng-show="$ctrl.editMode==true">
+		<button class="btn btn-success" ng-disabled="form.$invalid" ng-click="$ctrl.save()">Save</button>
+	</div>
+</div>

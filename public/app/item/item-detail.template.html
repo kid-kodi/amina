@@ -1,0 +1,68 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.item.name}}</h3>
+			<a href="#/item">back to item list</a>
+		</div>
+		<div>
+			<button class="btn btn-secondary" ng-click="$ctrl.editMode = true">Modifier</button>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Transaction List">
+	    <div ng-show="$ctrl.transactions.length > 0">
+		    <table class="table">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Type</th>
+						<th>Quantity</th>
+						<th>Price / Cout</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in $ctrl.transactions | filter:$ctrl.search">
+						<td>{{c.created_at}}</td>
+						<td>{{c.type}}</td>
+						<td>{{c.quantity | number}}</td>
+						<td>{{c.price | number}} {{c.cost | number}} F.CFA</td>
+						<td>{{c.total | number}} F.CFA</td>
+					</tr>
+				</tbody>
+			</table>
+	    </div>
+	    <div ng-show="$ctrl.transactions.length == 0">
+	    	<div class="empty-list">
+				<h3 class="text-center">No transactions</h3>
+	    	</div>
+		</div>
+
+	  </my-pane>
+	  <my-pane title="Item details">
+	    <div>
+	    	<div class="row">
+	    		<div class="col-sm-2">Name</div>
+	    		<div class="col-sm-10">{{$ctrl.item.name}}</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-2">Cost</div>
+	    		<div class="col-sm-10">{{$ctrl.item.cost | number}} F.CFA</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-2">Price</div>
+	    		<div class="col-sm-10">{{$ctrl.item.price | number}} F.CFA</div>
+	    	</div>
+	    </div>
+	  </my-pane>
+	</my-tabs>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<item-edit 
+		item="$ctrl.item" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( item )"></item-edit>
+	</div>
+</div>

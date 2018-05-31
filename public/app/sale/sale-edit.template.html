@@ -1,0 +1,114 @@
+<div class="panel">
+	<div class="row">
+        <div class="col-4 d-flex flex-row align-items-center">
+            <a class="icon-link" href="#/sale/{{$ctrl.sale._id}}">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+    		<h3>Sale information</h3>
+        </div>
+        <div class="col-8 text-right">
+
+            <div class="row">
+              <div class="col-sm-4">
+                    <strong>{{$ctrl.sale.paid | number}}</strong>
+                    <p>PAID</p>
+              </div>
+              <div class="col-sm-4">
+                    <strong>{{$ctrl.sale.balance = ($ctrl.sale.items | totalSumPriceQty:'quantity':'price') | number}}</strong>
+                    <p>BALANCE</p>
+              </div>
+              <div class="col-sm-4">
+                    <strong>{{$ctrl.sale.amount = ($ctrl.sale.items | totalSumPriceQty:'quantity':'price') | number}}</strong>
+                    <p>AMOUNT</p>
+              </div>
+            </div>
+        </div>
+	</div>
+	<div>
+		<form name="form" novalidate>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-4">
+                          <angucomplete-alt id="ex2"
+                            placeholder="Search customer"
+                            pause="300"
+                            selected-object="$ctrl.setCustomer"
+                            local-data="$ctrl.customers"
+                            search-fields="name"
+                            title-field="name"
+                            minlength="1"
+                            input-class="form-control"
+                            match-class="highlight" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
+                                <th>Product / Service</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Price ( F.CFA )</th>
+                                <th>Total ( F.CFA )</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $ctrl.sale.items">
+                                <td>
+                                    <input type="checkbox" ng-model="item.selected"/>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" ng-model="item.item_name"/>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" ng-model="item.description"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" ng-model="item.quantity"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" ng-model="item.price"/>
+                                </td>
+                                <td>
+                                    {{item.quantity * item.price}}
+                                </td>
+                            </tr>
+                            <tr ng-show="$ctrl.showAddItem==true">
+                                <td></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <input class="form-control" type="text" name="" placeholder="enter product / service" ng-model="$ctrl.search">
+                                        <ul ng-show="$ctrl.search.length > 0">
+                                            <li ng-repeat="item in $ctrl.items | filter:$ctrl.search | limitTo:5">
+                                                <a href="" ng-click="$ctrl.addItem( item )">
+                                                    {{item.name}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td colspan="4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+        			<div class="bar">
+        				<div>
+                            <button class="btn btn-secondary" ng-click="$ctrl.showAddItem=true">Add line</button>
+                            <button class="btn btn-secondary" ng-click="$ctrl.clear_items()">Clear all</button>
+                            <button class="btn btn-light" ng-click="$ctrl.remove()">Remove selection</button>
+        				</div>
+        			</div>
+                </div>
+    		</form>
+        </div>
+	</div>
+	<div class="bar">
+        <a class="btn btn-secondary" href="#/sale/{{$ctrl.sale._id}}">Cancel</a>
+		<button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="$ctrl.save()">Save</button>
+	</div>
+</div>

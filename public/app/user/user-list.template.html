@@ -1,0 +1,62 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<div>
+			<h3 class="title">User</h3>
+			<a href="#/role">roles</a>
+		</div>
+		<div>
+			<button class="btn btn-success" ng-click="$ctrl.editUser()">New</button>
+		</div>
+	</div>
+	<div class="bar">
+		<input class="form-control" type="text" placeholder="Search a user" ng-model="$ctrl.search">
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Role</th>
+				<th>Téléphone</th>
+				<th>Email</th>
+				<th class="last">
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+				<td>{{c.name}}</td>
+				<td>{{c.role_name}}</td>
+				<td>{{c.phone}}</td>
+				<td>{{c.email}}</td>
+				<td class="last">
+
+					<div class="btn-group">
+					  <a  href="#/user/{{c._id}}" class="btn btn-link">Details</a>
+					  <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <div class="dropdown-menu dropdown-menu-right">
+					    <a class="dropdown-item" href="" ng-click="$ctrl.editUser( c )">Edit</a>
+					  </div>
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<h1>No users</h1>
+	<button ng-click="$ctrl.editUser()">New</button>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<user-edit 
+		user="$ctrl.user" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( user )"></user-edit>
+	</div>
+</div>

@@ -1,0 +1,59 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<h3 class="title">Supplier</h3>
+		<div>
+			<button class="btn btn-success" ng-click="$ctrl.editSupplier()">New</button>
+		</div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-4">
+			<input class="form-control" type="text" placeholder="Search a supplier" ng-model="$ctrl.search">
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Téléphone</th>
+				<th>Email</th>
+				<th class="last">
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+				<td>{{c.name}}</td>
+				<td>{{c.phone}}</td>
+				<td>{{c.email}}</td>
+				<td class="last">
+					<div class="btn-group">
+					  <a  href="#/supplier/{{c._id}}" class="btn btn-link">Details</a>
+					  <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <div class="dropdown-menu dropdown-menu-right">
+					    <a class="dropdown-item" href="" ng-click="$ctrl.editSupplier( c )">Edit</a>
+					  </div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<div class="empty-list">
+		<h3 class="text-center">No suppliers</h3>
+		<button ng-click="$ctrl.editSupplier()">New</button>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<supplier-edit 
+		supplier="$ctrl.supplier" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( supplier )"></supplier-edit>
+	</div>
+</div>

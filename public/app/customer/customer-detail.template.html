@@ -1,0 +1,89 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.customer.name}}</h3>
+			<a href="#/customer">back to customer list</a>
+		</div>
+		<div>
+			<button class="btn btn-secondary" ng-click="$ctrl.editMode = true">Modifier</button>
+			<a class="btn btn-success" href="#/customer/{{$ctrl.customer._id}}/sale/0">New sale</a>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Transaction List">
+	    <div ng-show="$ctrl.sales.length > 0">
+		    <table class="table">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>NO.</th>
+						<th>Balance</th>
+						<th>Amount</th>
+						<th>Status</th>
+						<th class="last">
+							Action
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in $ctrl.sales | filter:$ctrl.search">
+						<td>{{c.created_at}}</td>
+						<td>{{c.number}}</td>
+						<td>{{c.balance | number}} F.CFA</td>
+						<td>{{c.amount | number}} F.CFA</td>
+						<td>
+							<b ng-show="c.status==0">Pending</b>
+							<b ng-show="c.status==1">Paid</b>
+							<b ng-show="c.status==2">Cancelled</b>
+						</td>
+						<td class="last">
+							<a ng-show="c.status==0" href="#/customer/{{c.customer_id}}/sale/{{c._id}}">Edit</a>
+							<a ng-show="c.status==1" href="" ng-click="$ctrl.printSale( c )">Print</a>
+							<b ng-show="c.status==2">Dismiss</b>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	    </div>
+	    <div ng-show="$ctrl.sales.length == 0">
+	    	<div class="empty-list">
+				<h3 class="text-center">No sales</h3>
+	    	</div>
+		</div>
+
+	  </my-pane>
+	  <my-pane title="Customer details">
+	    <div class="container">
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">First name</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.first_name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Last name</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.last_name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Company name</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.name}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Email</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.email}}</div>
+	    	</div>
+	    	<div class="row p-2">
+	    		<div class="col-sm-2">Telephone</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.phone}}</div>
+	    	</div>
+	    </div>
+	  </my-pane>
+	</my-tabs>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<customer-edit 
+		customer="$ctrl.customer" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( customer )"></customer-edit>
+	</div>
+</div>

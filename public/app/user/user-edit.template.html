@@ -1,0 +1,71 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">User information</h5>
+        <button type="button" class="close" ng-click="$ctrl.close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form name="form" novalidate>
+        	<div class="mb-3">
+				<label>Role</label>
+				<select class="form-control" name="role" ng-model="$ctrl.user.role_id">
+					<option value="">Aucun role</option>
+					<option ng-repeat="r in $ctrl.roles" value="{{r._id}}">{{r.name}}</option>
+				</select>
+				<div ng-show="form.role.$touched && form.role.$invalid">
+					<span class="text-danger" ng-show="form.role.$error.required">User role is required</span>
+				</div>
+			</div>
+			<div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="first_name">First name</label>
+                <input type="text" class="form-control" ng-model="$ctrl.user.first_name">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="last_name">Last name</label>
+                <input type="text" class="form-control" ng-model="$ctrl.user.last_name">
+              </div>
+            </div>
+			<div class="mb-3">
+				<label for="name">Company name <span class="text-danger">*</span></label>
+				<input class="form-control" type="text" name="name" ng-model="$ctrl.user.name" required>
+				<div ng-show="form.name.$touched && form.name.$invalid">
+					<span class="text-danger" ng-show="form.name.$error.required">User name is required</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="phone">Telephone <span class="text-danger">*</span></label>
+				<input type="text" class="form-control" name="phone" ng-model="$ctrl.user.phone" maxlength="8" required>
+				<div ng-show="form.phone.$touched && form.phone.$invalid">
+					<span class="text-danger" ng-show="form.phone.$error.required">User phone number is required</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="email">Email <span class="text-danger">*</span></label>
+				<input type="email" class="form-control" name="email" ng-model="$ctrl.user.email" required>
+				<div ng-show="form.email.$touched && form.email.$invalid">
+					<span class="text-danger" ng-show="form.email.$error.required">User email adresse is required</span>
+					<span class="text-danger" ng-show="form.email.$error.email">Valid email adresse is required</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label>Password <span class="text-danger">*</span></label>
+				<input class="form-control" type="password" name="password" ng-model="$ctrl.user.password" required>
+				<div ng-show="form.password.$touched && form.password.$invalid">
+					<span class="text-danger" ng-show="form.password.$error.required">User password is required</span>
+				</div>
+			</div>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button ng-disabled="form.$invalid" class="btn btn-primary" ng-click="$ctrl.save()">Save changes</button>
+        <button type="button" class="btn btn-secondary" ng-click="$ctrl.close()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

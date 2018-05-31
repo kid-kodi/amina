@@ -1,0 +1,14 @@
+<div class="dropdown-container" ng-class="{ show: listVisible }"> 
+	<div class="dropdown-display" ng-click="show();" ng-class="{ clicked: listVisible }">
+		<input type="text" placeholder="{{placeholder}}" name="" ng-model="display">
+		<i ng-click="reset();" class="fa fa-angle-down"></i>
+	</div> 
+	<div class="dropdown-list" ng-show="display.length>0 && selected==''"> 
+		<div> 
+			<div class="dropdown-item" ng-repeat="item in list | filter:display" ng-click="select(item)" ng-class="{ selected: isSelected(item) }"> 
+				<span>{{property !== undefined ? item[property] : item}}</span> 
+				<i class="fa fa-check"></i> 
+			</div> 
+		</div> 
+	</div> 
+</div>

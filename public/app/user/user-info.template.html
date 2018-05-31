@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="d-flex justify-content-end">
+		<button ng-show="$ctrl.editMode==false" class="btn" ng-click="$ctrl.editMode=!$ctrl.editMode">
+			Modifier
+		</button>
+	</div>
+	<form name="form" novalidate>
+	    <div class="form-group row">
+			<label class="col-sm-2 col-form-label">Role</label>
+			<div class="col-sm-10">
+				<select ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" name="role" ng-model="$ctrl.user.role_name">
+					<option value="">Aucun role</option>
+					<option ng-repeat="r in $ctrl.roles" value="{{r.name}}">{{r.name}}</option>
+				</select>
+				<div ng-show="form.role.$touched && form.role.$invalid">
+					<span ng-show="form.role.$error.required">User role is required</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Nom</label>
+			<div class="col-sm-10">
+				<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="text" name="name" ng-model="$ctrl.user.name" required>
+				<div ng-show="form.name.$touched && form.name.$invalid">
+					<span ng-show="form.name.$error.required">User name is required</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Téléphone</label>
+			<div class="col-sm-10">
+				<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="text" name="phone" ng-model="$ctrl.user.phone" maxlength="8" required>
+				<div ng-show="form.phone.$touched && form.phone.$invalid">
+					<span ng-show="form.phone.$error.required">User phone number is required</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Email</label>
+			<div class="col-sm-10">
+				<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="email" name="email" ng-model="$ctrl.user.email" required>
+				<div ng-show="form.email.$touched && form.email.$invalid">
+					<span ng-show="form.email.$error.required">User email adresse is required</span>
+					<span ng-show="form.email.$error.email">Valid email adresse is required</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Password</label>
+			<div class="col-sm-10">
+				<input ng-class="$ctrl.editMode ? 'form-control' : 'form-control-plaintext'" type="password" name="password" ng-model="$ctrl.user.password" required>
+				<div ng-show="form.password.$touched && form.password.$invalid">
+					<span ng-show="form.password.$error.required">User password is required</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group row" ng-show="$ctrl.editMode==true">
+			<div class="col-sm-2">
+				<button class="btn btn-success" ng-disabled="form.$invalid" ng-click="$ctrl.save()">Save</button>
+			</div>
+		</div>
+	</form>
+</div>

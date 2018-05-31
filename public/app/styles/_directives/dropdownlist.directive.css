@@ -1,0 +1,46 @@
+.dropdown-container{
+	position: relative;
+}
+.dropdown-display input{
+	padding: 10px;
+}
+.dropdown-list{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border : 1px solid #eee;
+}
+
+.dropdown-item{
+	padding: 10px 5px;
+}
+
+.dropdown-item:hover{
+	background: #eee;
+	cursor: default;
+}
+
+.dropdown{
+	position: relative;
+}
+
+.dropdown ul{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border : 1px solid #eee;
+	z-index: 1;
+}
+
+
+.dropdown ul li a{
+	padding: 10px 5px;
+}
+
+.dropdown ul li a:hover{
+	padding: 10px 5px;
+}

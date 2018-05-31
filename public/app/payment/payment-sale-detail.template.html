@@ -1,0 +1,152 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.sale.customer.name}}</h3>
+			<a href="#/payment">back to payment list</a>
+		</div>
+		<div class="d-flex align-items-center">
+			<h3 class="text-primary" ng-show="$ctrl.sale.status == 1">PAID</h3>
+			<h3 class="text-danger" ng-show="$ctrl.sale.status == 2">CANCEL</h3>
+            <h3 class="text-danger" ng-show="$ctrl.sale.status == 0">{{$ctrl.sale.amount | number}} F.CFA</h3>
+		</div>
+		<div class="d-flex align-items-center">
+			<button class="btn btn-secondary" ng-click="$ctrl.print()">Print</button>
+		</div>
+	</div>
+
+    <div class="row" ng-hide="$ctrl.sale.status == 1">
+        <div class="col-sm">
+            <div class="card">
+              <div class="card-body">
+                <form class="form-inline">
+                  <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only"></label>
+                    <input class="form-control"
+                       ng-model="$ctrl.payment.mindate"
+                       ng-model-options="{ updateOn: 'blur' }"
+                       placeholder="Select a min date..."
+                       moment-picker="$ctrl.payment.mindate"
+                       format="YYYY-MM-DD"
+                       max-date="$ctrl.payment.maxdate">
+                  </div>
+                  <span class="mx-sm-3 mb-2"> To</span>
+                  <div class="form-group mr-3 mb-2">
+                    <label for="inputPassword2" class="sr-only"></label>
+                    <input class="form-control"
+                       ng-model="$ctrl.payment.maxdate"
+                       ng-model-options="{ updateOn: 'blur' }"
+                       placeholder="Select a max date..."
+                       moment-picker="$ctrl.payment.maxdate"
+                       format="YYYY-MM-DD"
+                       min-date="$ctrl.payment.mindate">
+                  </div>
+                  <input class="form-control" type="number" name="montant" ng-model="$ctrl.payment.amount">
+                  <button type="submit" class="btn btn-primary" ng-click="$ctrl.save()">Enregistrer</button>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h3>{{$ctrl.sale.balance | number}} F.CFA</h3>
+            <p>BALANCE</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h3>{{$ctrl.sale.paid | number}} F.CFA</h3>
+            <p>PAID</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h3>{{$ctrl.sale.amount | number}} F.CFA</h3>
+            <p>TOTAL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+        <my-tabs>
+          <my-pane title="Payment List">
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date de paiement</th>
+                            <th>Date de paiement</th>
+                            <th>Montant payé</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in $ctrl.payments">
+                            <td>
+                                <label>{{item.mindate}}</label>
+                            </td>
+                            <td>
+                                <label>{{item.maxdate}}</label>
+                            </td>
+                            <td>
+                                <label>{{item.amount | number}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td>{{$ctrl.payments | sumOfValue:'amount' | number}} F.CFA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </my-pane>
+          <my-pane title="Sale detail">
+    		<div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product / Service</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price ( F.CFA )</th>
+                            <th>Total ( F.CFA )</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in $ctrl.sale.items">
+                            <td>
+                            	<label>{{item.item_name}}</label>
+                            </td>
+                            <td>
+                            	<label>{{item.description}}</label>
+                            </td>
+                            <td>
+                            	<label>{{item.quantity}}</label>
+                            </td>
+                            <td>
+                            	<label>{{item.price}}</label>
+                            </td>
+                            <td>
+                                {{item.quantity * item.price | number}}
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="3"></td>
+                        	<td>Total</td>
+                        	<td>{{$ctrl.sale.amount | number}} F.CFA</td>
+                        </tr>
+                    </tbody>
+                </table>
+    		</div>
+          </my-pane>
+        </my-tabs>
+	</div>
+</div>

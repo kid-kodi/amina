@@ -1,0 +1,21 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h1>{{$ctrl.user.name}}</h1>
+		</div>
+		<div>
+			<a href="#/user">back to users</a>
+		</div>
+	</div>
+	<my-tabs>
+	  <my-pane title="Transaction List">
+	    <user-expenses></user-expenses>
+	  </my-pane>
+	  <my-pane title="Sales list">
+	    <user-sales></user-sales>
+	  </my-pane>
+	  <my-pane title="User details">
+	    <user-info></user-info>
+	  </my-pane>
+	</my-tabs>
+</div>

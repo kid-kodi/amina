@@ -1,0 +1,65 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<h3 class="title">Products and services</h3>
+		<div>
+			<button class="btn btn-success" ng-click="$ctrl.editItem()">New</button>
+		</div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-4">
+			<input class="form-control" type="text" placeholder="Search a item" ng-model="$ctrl.search">
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Type</th>
+				<th>Price</th>
+				<th>Cost</th>
+				<th>Qty</th>
+				<th class="last">
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+				<td>{{c.name}}</td>
+				<td>{{c.type}}</td>
+				<td>{{c.price | number}}</td>
+				<td>{{c.cost | number}}</td>
+				<td>{{c.quantity | number}}</td>
+				<td class="last">
+
+					<div class="btn-group">
+					  <a  href="#/item/{{c._id}}" class="btn btn-link">Details</a>
+					  <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+					  <div class="dropdown-menu dropdown-menu-right">
+					    <a class="dropdown-item" href="" ng-click="$ctrl.editItem( c )">Edit</a>
+					  </div>
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<div class="empty-list text-center">
+		<h3 class="text-center">No items</h3>
+		<button class="btn btn-success" ng-click="$ctrl.editItem()">New customer</button>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<item-edit 
+		item="$ctrl.item" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( item )"></item-edit>
+	</div>
+</div>

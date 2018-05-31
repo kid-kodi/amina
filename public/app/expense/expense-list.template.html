@@ -1,0 +1,73 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<h3 class="title">Expense</h3>
+	</div>
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-body">
+	      	<h3>Outcoume</h3>
+			<span>{{$ctrl.list | filter:{status:0} | sumOfValue:'amount' | number}} F.CFA</span>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-body">
+	        <h3>Paid</h3>
+			<span>{{$ctrl.list | filter:{status:1} | sumOfValue:'amount' | number}} F.CFA</span>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-4">
+			<input class="form-control" type="text" placeholder="Search a expense" ng-model="$ctrl.search">
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>NO.</th>
+				<th>Supplier</th>
+				<th>Balance</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th class="last">
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+				<td>{{c.created_at}}</td>
+				<td>{{c.number}}</td>
+				<td>
+					<a href="" ng-click="$ctrl.gotoExpense( c )">	
+						{{c.supplier_name}}
+					</a>
+				</td>
+				<td>{{c.balance}} F.CFA</td>
+				<td>{{c.amount}} F.CFA</td>
+				<td>
+					<b ng-show="c.status==0">Pending</b>
+					<b ng-show="c.status==1">Paid</b>
+					<b ng-show="c.status==2">Cancelled</b>
+				</td>
+				<td class="last">
+					<a href="#/expense/{{c._id}}">
+						<span ng-show="c.status==0">Proceed</span>
+						<span ng-show="c.status==1">Details</span>
+						<span ng-show="c.status==2">Dismissed</span>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<h1>No expenses</h1>
+	<button ng-click="$ctrl.editExpense()">New</button>
+</div>

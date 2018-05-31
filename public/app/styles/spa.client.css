@@ -1,0 +1,202 @@
+.spa-client, .spa-client-list, .spa-client-detail, .spa-client-edit{
+  position: absolute;
+}
+
+.spa-client{
+  /* position: relative; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: #eee; */
+  /* padding: 20px; */
+  /* display: flex; */
+  /* overflow: hidden; */
+}
+
+.spa-client-list{
+  top: 0;
+  left: 0;
+  right: 0;
+  /* width: 450px; */
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.spa-client-detail{
+  top: 0;
+  left: 450px;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.topbar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+}
+
+.glass-bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+  .spa-x-closed .glass-bar {
+    display: none;
+  }
+
+.glass-bar .btn:first-child {
+    margin-left: 0;
+    margin-right: 15px;
+    line-height: 36px;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-padding-before: 0.1em;
+}
+
+.glass-bar .btn {
+    line-height: 36px;
+    margin-left: -4px;
+    margin-right: 20px;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-padding-before: 0.1em;
+    -webkit-font-smoothing: antialiased;
+    border: 1px solid rgba(237,237,237,0);
+    color: #284E94;
+    background: rgba(255,255,255,0);
+    border: none !important;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn .icon{
+  font-style: normal;
+  font-weight: normal;
+  font-family: mail;
+  speak: none;
+  cursor: pointer;
+  line-height: 1em;
+  font-size: 20px;
+  font-size: 1rem;
+  padding-right: 0.3em;
+}
+
+.btn .text{
+  /*font-style: normal;
+  font-weight: normal;
+  font-family: mail;
+  speak: none;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: -18%;
+  line-height: 1em;
+  font-size: 20px;
+  font-size: 2rem;
+  padding-right: 0.3em;*/
+  font-weight: 500;
+}
+
+
+.glass-list{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* overflow-y: scroll; */
+}
+
+  .spa-x-closed .glass-list {
+    /*top: 0;
+    z-index: 1;*/
+  }
+
+.glass-list .glass-list-card{
+  /* height: 70px; */
+  /* margin-left: 35px; */
+  padding: 10px;
+  /* background: rgba(179,208,255,0.35); */
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  color: #454545;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* text-align: left; */
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 13px!important;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  -webkit-transition: background-color 0.05s linear,height 0.2s linear,line-height 0.2s linear;
+  -moz-transition: background-color 0.05s linear,height 0.2s linear,line-height 0.2s linear;
+  transition: background-color 0.05s linear,height 0.2s linear,line-height 0.2s linear;
+}
+
+.glass-list-card .client-name{
+  margin-top: -4px;
+  line-height: 30px!important;
+  /* overflow: hidden !important; */
+  max-width: 100%;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 280px;
+  margin-top: 5px;
+  line-height: 32px;
+  font-weight: 500;
+  font-size: 0.8rem!important;
+  margin-bottom: -10px;
+}
+
+.glass-list-card .client-date-naissance{
+  margin-top: -4px;
+  /* line-height: 30px!important; */
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  margin-top: 5px;
+  /* line-height: 32px; */
+  font-weight: 400;
+  /* font-size: 0.4rem!important; */
+  margin-bottom: -10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  margin-top: 5px;
+}
+
+.glass-list-card .client-telephone{
+  margin-top: -4px;
+  line-height: 30px!important;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  margin-top: 5px;
+  line-height: 32px;
+  font-weight: 500;
+  /* font-size: 1.4rem!important; */
+  /* margin-bottom: -10px; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  margin-top: 5px;
+}
+
+.glass-list-card.active, .glass-list-card:hover{
+  background: rgba(179,208,255,0.35);}

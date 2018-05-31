@@ -1,0 +1,95 @@
+<div class="panel" ng-show="$ctrl.list.length > 0">
+	<div class="bar">
+		<h3 class="title">Sale</h3>
+		<div>
+			<a class="btn btn-success" href="#/sale/edit/0">New sale</a>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-body">
+	      	<h3>Outcoume</h3>
+			<span>{{$ctrl.list | filter:{status:0} | sumOfValue:'amount' | number}} F.CFA</span>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-body">
+	        <h3>Paid</h3>
+			<span>{{$ctrl.list | filter:{status:1} | sumOfValue:'amount' | number}} F.CFA</span>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-4">
+			<input class="form-control" type="text" placeholder="Search a sale" ng-model="$ctrl.search">
+		</div>
+	</div>
+	<div id="exportable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>NO.</th>
+					<th>Customer</th>
+					<th>Balance</th>
+					<th>Amount</th>
+					<th>Status</th>
+					<th class="last">
+						Action
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+					<td>{{c.created_at}}</td>
+					<td>{{c.number}}</td>
+					<td>
+						{{c.customer_name}}
+					</td>
+					<td>{{c.balance}} F.CFA</td>
+					<td>{{c.amount}} F.CFA</td>
+					<td>
+						<b ng-show="{{c.status==0}}">Pending</b>
+						<b ng-show="{{c.status==1}}">Paid</b>
+						<b ng-show="{{c.status==2}}">Cancelled</b>
+					</td>
+					<td class="last">
+						<a href="#/sale/{{c._id}}">
+							<span ng-show="{{c.status==0}}"> Make payment</span>
+							<span ng-show="{{c.status==1}}"> Details</span>
+							<span ng-show="{{c.status==2}}"> Cancelled</span>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="panel" ng-show="$ctrl.list.length == 0">
+	<div class="empty-list">
+		<h3 class="text-center">No sales</h3>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<sale-edit 
+		sale="$ctrl.sale" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( sale )"></sale-edit>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.detailMode">
+	<div ng-switch-when="true">
+		<sale-detail 
+		sale="$ctrl.sale" 
+		on-close="$ctrl.detailMode = false"
+		on-edit="$ctrl.editSale( sale )"></sale-detail>
+	</div>
+</div>

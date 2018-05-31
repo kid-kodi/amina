@@ -1,0 +1,64 @@
+.spa-report{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow:hidden;
+}
+
+.spa-report-search{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  bottom: 0;
+  padding: 0 10px;
+  overflow-y: auto;
+}
+
+  .spa-report-search input[type=text],
+  .spa-report-search select,
+  .spa-report-search button{
+    display: block;
+    width: 100%;
+    margin: 2px 0;
+  }
+
+  .spa-report-search button{
+    margin: 10px 0 !important;
+    padding : 10px !important;
+    font-size : 16px !important;
+    background : blue !important;
+    color : #fff !important;
+  }
+
+.spa-report-main{
+  position: absolute;
+  top: 0;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  overflow:hidden;
+}
+
+  .spa-report-main-nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow:hidden;
+    padding: 0 10px;
+  }
+  .spa-report-main-content{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    padding: 0 10px;
+  }

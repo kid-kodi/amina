@@ -1,0 +1,103 @@
+.spa-wb, 
+.spa-wb-head, .spa-wb-head-logo, .spa-wb-head-acct, .spa-wb-head-search, 
+.spa-wb-main, .spa-wb-main-nav, .spa-wb-main-content, .spa-wb-main-aside, .spa-wb-foot{
+  position: absolute;
+}
+.spa-wb{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden;
+}
+.spa-wb-head{
+  top: 0;
+  height: 50px;
+  left: 0;
+  right: 0;
+  background: #eee;
+  display: flex;
+  align-items: flex-end;
+}
+
+  
+
+.spa-wb-head-logo {
+  top    : 4px;
+  left   : 8px;
+  height : 32px;
+  width  : 128px;
+}
+
+.spa-wb-head-search {
+  top    : 4px;
+  left   : 300px;
+  right  : 300px;
+  height : 32px;
+  background: #ccc;
+}
+  .spa-wb-head-logo h1 {
+    font   : 800 22px/22px Arial, Helvetica, sans-serif;
+    margin : 0;
+  }
+  .spa-wb-head-logo p {
+    font   : 800 10px/10px Arial, Helvetica, sans-serif;
+    margin : 0;
+  }
+
+.spa-wb-head-acct {
+  top           : 4px;
+  right         : 0;
+  width         : 210px;
+  height        : 32px;
+  line-height   : 32px;
+  background    : #888;
+  color         : #fff;
+  text-align    : center;
+  cursor        : pointer;
+  overflow      : hidden;
+  text-overflow : ellipsis;
+}
+.spa-wb-main{
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.spa-wb-main-content{
+  top: 0;
+  left: 300px;
+  bottom: 0;
+  right: 300px;
+  overflow-y: scroll;
+}
+.spa-wb-main-aside{
+  top: 0;
+  width: 300px;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+.spa-wb-main-nav{
+  top: 0;
+  width: 300px;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.spa-wb-nav-sub{
+  padding-left: 34px;
+  padding-bottom: 0;
+}
+.spa-wb-nav-sub li{
+  padding-right: 10px;
+}
+.spa-wb-nav-sub li a{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 3px 5px;
+    width: inherit;
+}

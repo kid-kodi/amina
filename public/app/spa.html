@@ -1,0 +1,240 @@
+<!doctype html>
+  <html>
+  <head>
+    <!-- ie9+ rendering support for latest standards -->
+    <meta http-equiv="Content-Type" content="text/html; 
+      charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>amina</title>
+
+    <!-- our third party styles -->
+    <link rel="stylesheet" href="styles/third/ionicons.min.css">
+    <link rel="stylesheet" href="styles/third/angucomplete.css">
+    <link rel="stylesheet" href="styles/third/bootstrap.css">
+    <link rel="stylesheet" href="styles/third/angular-moment-picker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- our styles -->
+    <link rel="stylesheet" href="styles/spa.css">
+    <link rel="stylesheet" href="styles/spa.shell.css">
+    <link rel="stylesheet" href="styles/_directives/dropdownlist.directive.css">
+    
+
+
+    <!-- our third party js -->
+    <script src="../socket.io/socket.io.js"          ></script>
+    <script src="../vendors/angular.js"              ></script>
+    <script src="../vendors/angular-route.js"        ></script>
+    <script src="../vendors/angular-cookies.js"      ></script>
+    <script src="../vendors/angular-animate.js"      ></script>
+    <script src="../vendors/angular-resource.js"     ></script>
+    <script src="../vendors/angucomplete.js"         ></script>
+    <script src="../vendors/angular-locale_fr-fr.js" ></script>
+    <script src="../vendors/moment.js"               ></script>
+    <script src="../vendors/angular-moment.min.js"   ></script>
+    <script src="../vendors/ng-google-chart.min.js"  ></script>
+    <script src="../vendors/angular-moment-picker.js"></script>
+    <script src="../vendors/ng-file-upload-shim.js"  ></script> <!-- for no html5 browsers support -->
+    <script src="../vendors/ng-file-upload.js"       ></script>
+
+    <!-- our excel 3 party js -->
+    <script src="../vendors/FileSaver.js"         ></script>
+    <script src="../vendors/xlsx.core.min.js"     ></script>
+    <script src="../vendors/cpexcel.js"           ></script>
+    <script src="../vendors/ods.js"               ></script>
+    <script src="../vendors/checklist-model.js"   ></script>
+    <script src="../vendors/papaparse.min.js"     ></script>
+    <script src="../vendors/jquery-slim.min.js"   ></script>
+    <script src="../vendors/popper.min.js"        ></script>
+    <script src="../vendors/bootstrap.bundle.js"  ></script>
+    <script src="../vendors/angular-translate.js" ></script>
+
+
+    <!-- our js -->
+    <script src="spa.module.js"    ></script>
+    <script src="spa.config.js"    ></script>
+    <script src="spa.socket.js"    ></script>
+    <script src="spa.directive.js" ></script>
+    <script src="spa.data.js"      ></script>
+    <script src="spa.filter.js"    ></script>
+
+    <!-- our common services -->
+    <script src="_services/alert.service.js"   ></script>
+    <script src="_services/session.service.js" ></script>
+
+    <!-- our common directives -->
+    <script src="_directives/tab.directive.js"   ></script>
+    <script src="_directives/grouping.filter.js" ></script>
+    <script src="_directives/menuHighlighter.js" ></script>
+    <script src="_directives/printer.js"         ></script>
+    <script src="_directives/capitalize.js"      ></script>
+    <script src="_directives/tonumber.js"        ></script>
+    <script src="_directives/compute.js"         ></script>
+
+    <!-- our sidenav js -->
+    <script src="sidenav/sidenav-app.module.js"  ></script>
+    <script src="sidenav/sidenav-app.service.js" ></script>
+    <script src="sidenav/sidenav.component.js"   ></script>
+
+    <!-- our topnav js -->
+    <script src="topnav/topnav-app.module.js"  ></script>
+    <script src="topnav/topnav-app.service.js" ></script>
+    <script src="topnav/topnav.component.js"   ></script>
+
+
+    <!-- our dashboard js -->
+    <script src="dashboard/dashboard-app.module.js"  ></script>
+    <script src="dashboard/dashboard-app.service.js" ></script>
+    <script src="dashboard/dashboard.component.js"   ></script>
+
+    <!-- our customer js -->
+    <script src="customer/customer-app.module.js"       ></script>
+    <script src="customer/customer-app.config.js"       ></script>
+    <script src="customer/customer-app.service.js"      ></script>
+    <script src="customer/customer-list.module.js"      ></script>
+    <script src="customer/customer-list.component.js"   ></script>
+    <script src="customer/customer-edit.module.js"      ></script>
+    <script src="customer/customer-edit.component.js"   ></script>
+    <script src="customer/customer-detail.module.js"    ></script>
+    <script src="customer/customer-detail.component.js" ></script>
+    <script src="customer/customer-sale.module.js"     ></script>
+    <script src="customer/customer-sale.component.js"  ></script>
+
+
+    <!-- our item js -->
+    <script src="item/item-app.module.js"       ></script>
+    <script src="item/item-app.config.js"       ></script>
+    <script src="item/item-app.service.js"      ></script>
+    <script src="item/item-list.module.js"      ></script>
+    <script src="item/item-list.component.js"   ></script>
+    <script src="item/item-edit.module.js"      ></script>
+    <script src="item/item-edit.component.js"   ></script>
+    <script src="item/item-detail.module.js"    ></script>
+    <script src="item/item-detail.component.js" ></script>
+
+
+    <!-- supplier item js -->
+    <script src="supplier/supplier-app.module.js"        ></script>
+    <script src="supplier/supplier-app.config.js"        ></script>
+    <script src="supplier/supplier-app.service.js"       ></script>
+    <script src="supplier/supplier-list.module.js"       ></script>
+    <script src="supplier/supplier-list.component.js"    ></script>
+    <script src="supplier/supplier-edit.module.js"       ></script>
+    <script src="supplier/supplier-edit.component.js"    ></script>
+    <script src="supplier/supplier-detail.module.js"     ></script>
+    <script src="supplier/supplier-detail.component.js"  ></script>
+    <script src="supplier/supplier-expense.module.js"    ></script>
+    <script src="supplier/supplier-expense.component.js" ></script>
+
+
+    <!-- sale item js -->
+    <script src="sale/sale-app.module.js"       ></script>
+    <script src="sale/sale-app.config.js"       ></script>
+    <script src="sale/sale-app.service.js"      ></script>
+    <script src="sale/sale-list.module.js"      ></script>
+    <script src="sale/sale-list.component.js"   ></script>
+    <script src="sale/sale-edit.module.js"      ></script>
+    <script src="sale/sale-edit.component.js"   ></script>
+    <script src="sale/sale-detail.module.js"    ></script>
+    <script src="sale/sale-detail.component.js" ></script>
+
+    <!-- expense item js -->
+    <script src="expense/expense-app.module.js"       ></script>
+    <script src="expense/expense-app.config.js"       ></script>
+    <script src="expense/expense-app.service.js"      ></script>
+    <script src="expense/expense-list.module.js"      ></script>
+    <script src="expense/expense-list.component.js"   ></script>
+    <script src="expense/expense-edit.module.js"      ></script>
+    <script src="expense/expense-edit.component.js"   ></script>
+    <script src="expense/expense-detail.module.js"    ></script>
+    <script src="expense/expense-detail.component.js" ></script>
+
+
+    <!-- report item js -->
+    <script src="report/report-app.module.js"       ></script>
+    <script src="report/report-app.config.js"       ></script>
+    <script src="report/report-app.service.js"      ></script>
+    <script src="report/report-list.module.js"      ></script>
+    <script src="report/report-list.component.js"   ></script>
+    <script src="report/report-detail.module.js"    ></script>
+    <script src="report/report-detail.component.js" ></script>
+
+    <!-- our user js -->
+    <script src="user/user-app.module.js"         ></script>
+    <script src="user/user-app.config.js"         ></script>
+    <script src="user/user-app.service.js"        ></script>
+    <script src="user/user-list.module.js"        ></script>
+    <script src="user/user-list.component.js"     ></script>
+    <script src="user/user-edit.module.js"        ></script>
+    <script src="user/user-edit.component.js"     ></script>
+    <script src="user/user-detail.module.js"      ></script>
+    <script src="user/user-detail.component.js"   ></script>
+    <script src="user/user-info.module.js"        ></script>
+    <script src="user/user-info.component.js"     ></script>
+    <script src="user/user-sales.module.js"       ></script>
+    <script src="user/user-sales.component.js"    ></script>
+    <script src="user/user-expenses.module.js"    ></script>
+    <script src="user/user-expenses.component.js" ></script>
+
+    <!-- our role js -->
+    <script src="role/role-app.module.js"       ></script>
+    <script src="role/role-app.config.js"       ></script>
+    <script src="role/role-app.service.js"      ></script>
+    <script src="role/role-list.module.js"      ></script>
+    <script src="role/role-list.component.js"   ></script>
+    <script src="role/role-edit.module.js"      ></script>
+    <script src="role/role-edit.component.js"   ></script>
+    <script src="role/role-detail.module.js"    ></script>
+    <script src="role/role-detail.component.js" ></script>
+
+    <!-- our role js -->
+    <script src="payment/payment-app.module.js"            ></script>
+    <script src="payment/payment-app.config.js"            ></script>
+    <script src="payment/payment-app.service.js"           ></script>
+    <script src="payment/payment-list.module.js"           ></script>
+    <script src="payment/payment-list.component.js"        ></script>
+    <script src="payment/payment-edit.module.js"           ></script>
+    <script src="payment/payment-edit.component.js"        ></script>
+    <script src="payment/payment-detail.module.js"         ></script>
+    <script src="payment/payment-detail.component.js"      ></script>
+    
+    <script src="payment/payment-sale-list.module.js"      ></script>
+    <script src="payment/payment-sale-list.component.js"   ></script>
+    <script src="payment/payment-sale-detail.module.js"    ></script>
+    <script src="payment/payment-sale-detail.component.js" ></script>
+
+    
+    <script src="payment/payment-expense-list.module.js"      ></script>
+    <script src="payment/payment-expense-list.component.js"   ></script>
+    <script src="payment/payment-expense-detail.module.js"    ></script>
+    <script src="payment/payment-expense-detail.component.js" ></script>
+
+    <!-- our setting js -->
+    <script src="setting/setting-app.module.js"       ></script>
+    <script src="setting/setting-app.config.js"       ></script>
+    <script src="setting/setting-app.service.js"      ></script>
+    <script src="setting/setting-detail.module.js"    ></script>
+    <script src="setting/setting-detail.component.js" ></script>
+
+    <!-- our profil js -->
+    <script src="profil/profil-app.module.js"       ></script>
+    <script src="profil/profil-app.config.js"       ></script>
+    <script src="profil/profil-app.service.js"      ></script>
+    <script src="profil/profil-detail.module.js"    ></script>
+    <script src="profil/profil-detail.component.js" ></script>
+
+
+  </head>
+  <body ng-app="spa">
+    <div id="spa">
+        <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+        <topnav></topnav>
+        <div class="content">
+            <sidenav></sidenav>
+            <main ng-view></main>
+        </div>
+    </div>
+  </body>
+  </html>

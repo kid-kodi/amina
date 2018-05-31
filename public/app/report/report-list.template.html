@@ -1,0 +1,56 @@
+<div class="panel">
+	<div class="bar">
+		<h3 class="title">Report</h3>
+	</div>
+	<div class="row">
+	  <div class="col-sm-4">
+	    <div class="card">
+	      <div class="card-body">
+	      	<h3>{{$ctrl.net_incomes | number}}</h3>
+			<p>NET INCOMES</p>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-4">
+	    <div class="card">
+	      <div class="card-body">
+	        <h3>{{$ctrl.incomes | number}}</h3>
+			<p>INCOMES</p>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-4">
+	    <div class="card">
+	      <div class="card-body">
+	        <h3>{{$ctrl.expenses | number}}</h3>
+			<p>EXPENSES</p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-4">
+			<input class="form-control" type="text" placeholder="Search a report" ng-model="$ctrl.search">
+		</div>
+	</div>
+	<div>
+		<ul>
+			<li ng-repeat="r in $ctrl.list">
+				<div>
+					<h3>{{r.name}}</h3>
+					<p>{{r.description}}</p>
+					<a href="" ng-click="$ctrl.gotoReport( r )">Run</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.detailMode">
+	<div ng-switch-when="true">
+		<report-detail 
+		report="$ctrl.report" 
+		on-close="$ctrl.detailMode = false"
+		on-edit="$ctrl.editReport( report )"></report-detail>
+	</div>
+</div>

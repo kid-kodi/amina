@@ -1,0 +1,298 @@
+.spa-wb{
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.spa-wb-head, .spa-wb-actions, .spa-wb-list, .spa-wb-sub-list, .spa-wb-empty{
+  padding: 10px 0;
+}
+
+.spa-wb-head{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  /* background: #eee; */
+  border-bottom: 1px solid #ddd;
+  display : flex;
+  align-items :center;
+}
+
+.spa-wb-head h1{
+  margin : 0;
+}
+
+.spa-wb-empty{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 20px;
+  display : flex;  
+  justify-content: center;
+}
+
+.spa-wb-empty h1{
+  margin-top: 50px;
+}
+
+.spa-wb-head img{
+   width: 35px;
+   cursor: pointer;
+}
+
+.spa-wb-head span{
+   margin : 0 2px;
+}
+
+.spa-wb-head a{
+   font-size : 15px;
+}
+
+.spa-wb-actions{
+  padding: 10px 30px;
+}
+
+.spa-wb-main{
+  /* display: flex; */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom : 0;
+  padding: 10px 30px;
+  /* background: #fff; */
+  /* overflow-y: auto; */
+}
+
+.boite{
+  display : flex;
+  flex-wrap: wrap;
+  /* width : 400px; */
+}
+
+.spa-wb-main-pane{
+  /* display: flex; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom : 0;
+}
+
+.spa-wb-main-nav{
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom : 0;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+  z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.spa-wb-main-nav h1{
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.spa-wb-main-nav h3{
+  font-size : 15px;
+  font-weight : 500;
+  margin : 15px 0;
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.spa-wb-main-nav li{
+  /* height : 30px; */
+  display : flex;
+  align-items : center;
+  /* padding : 0 10px; */
+  margin-bottom : 2px;
+}
+
+.spa-wb-main-nav li a{
+  width : 100%;
+  font-weight : 400;
+  font-size : 14px;
+  padding: 10px;
+  margin: 0;
+}
+
+
+.spa-wb-main-nav li.active{
+  background : #ddd;
+}
+
+.spa-wb-main-nav li:hover{
+  background : #eee;
+}
+
+.nav-tree li{
+  display: block;
+  flex-direction: column;
+  /* padding: 10px; */
+}
+
+.nav-tree ul{
+  margin : 0 0 0 15px;
+  /* padding: 10px; */
+}
+
+.nav-tree li:hover, .nav-tree li.active{
+  background : none;
+}
+
+.nav-tree li a{
+  display : flex;
+}
+
+.nav-tree li a:hover{
+  background : #eee;
+}
+
+.nav-tree li a.active{
+  
+}
+
+
+
+.spa-wb-main-list{
+  position: absolute;
+  top: 0;
+  left: 310px;
+  right: 0;
+  bottom : 0;
+  padding: 0 5px;
+  overflow-y: auto;
+}
+
+
+
+.spa-wb-sub-list{
+  border: 1px solid #ddd;
+  padding: 0 !important;
+  margin: 10px 10px 25px 10px;
+}
+
+.list-item-head{
+  display       : flex;
+  align-items   : center;
+  border-bottom : 1px solid #ddd;
+}
+
+.list-item-head div span{
+  padding : 0 5px 0 0;
+}
+
+.list-item-head .actions{
+  display       : flex;
+  align-items   : rigth;
+}
+
+.list-item-main{
+  /* display: flex; */
+  align-items: center;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.list-item-main-card{
+  /* display : flex; */
+  /* flex-direction: row; */
+  margin: 2px 10px;
+}
+
+.list-item-main-empty{
+  font-size : 30px;
+  height: 100px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+}
+
+.list-item-head.info{
+  display       : flex;
+  align-items   : center;
+  border: none;
+  background: #eee;
+  height: 30px;
+}
+
+.list-item-head.info div{
+  padding : 0 15px;
+}
+
+.list-item{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0 29px 0;
+  border: 1px solid #ddd;
+}
+
+.list-item-child{
+  display       : flex;
+  align-items   : center;
+  
+  /* border-bottom : 1px solid #ddd; */
+}
+
+.list-item-child div{
+  padding: 5px 10px;
+  height: 40px;
+}
+
+.spa-wb .list{
+/* display: flex; */
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 10px 30px;
+/* background: #fff; */
+overflow-y: auto;
+}
+
+.spa-wb .detail {
+  display: none;
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.spa-wb .detail .close{
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content : center;
+    width: 48px;
+    min-width: 48px;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    text-align: center;
+    color: #333;
+}

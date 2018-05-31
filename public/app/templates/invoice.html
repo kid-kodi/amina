@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="styles/third/bootstrap.css">
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Invoice
+      <strong>{{this.com.number}} {{this.com.created_at}}</strong> 
+      <span class="float-right"> <strong>Status:</strong> {{this.com.status}}</span>
+    </div>
+    <div class="card-body">
+      <div class="row mb-4">
+        <div class="col-sm-6">
+          <h6 class="mb-3">From:</h6>
+          <div>
+          <strong>Webz Poland</strong>
+          </div>
+          <div>Madalinskiego 8</div>
+          <div>71-101 Szczecin, Poland</div>
+          <div>Email: info@webz.com.pl</div>
+          <div>Phone: +48 444 666 3333</div>
+        </div>
+
+        <div class="col-sm-6">
+          <h6 class="mb-3">To:</h6>
+          <div>
+          <strong>{{this.com.customer.name}}</strong>
+          </div>
+          <div>Attn: {{this.com.customer.first_name + ' ' + this.com.last_name}}</div>
+          <div>{{this.com.customer.adresse}}</div>
+          <div>Email: {{this.com.customer.email}}</div>
+          <div>Phone: {{this.com.customer.phone}}</div>
+          </div>
+      </div>
+
+      <div class="table-responsive-sm">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="center">#</th>
+              <th>Item</th>
+              <th>Description</th>
+
+              <th class="right">Unit Cost</th>
+              <th class="center">Qty</th>
+              <th class="right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in this.com.items">
+              <td class="center">{{$index}}</td>
+              <td class="left strong">{{item.item_name}}</td>
+              <td class="left">{{item.description}}</td>
+
+              <td class="right">{{item.price}}</td>
+              <td class="center">{{item.quantity}}</td>
+              <td class="right">{{item.price * item.quantity}}</td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td>Total</td>
+              <td>{{this.com.amount | number}} F.CFA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

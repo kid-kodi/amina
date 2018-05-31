@@ -1,0 +1,295 @@
+/*
+ * spa.shell.css
+ * Shell styles
+*/
+
+.spa-shell-head, .spa-shell-head-logo, .spa-shell-head-menu, .spa-shell-head-acct,
+.spa-shell-head-nav, .spa-shell-head-search, .spa-shell-main,
+.spa-shell-main-content, .spa-shell-foot, .spa-shell-chat,
+.spa-shell-modal {
+  position : absolute;
+}
+.spa-shell-head {
+  top    : 0;
+  left   : 0;
+  right  : 0;
+  height: 40px;
+  background: #0D47A1;
+  color: #fff;
+}
+.spa-shell-head-nav {
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  display : flex;
+  align-items : flex-end;
+}
+.spa-shell-head-nav ul{
+  display: flex;
+  align-items: flex-end;
+  height: 30px;
+}
+.spa-shell-head-nav ul li{
+  display: flex;
+  align-items: center;
+  /* padding : 0 10px; */
+  /* height: 40px; */
+  margin: 0 5px;
+  border-style: solid;
+  border-width: 0;
+  border-color: #eee;
+  border-radius: 3px 3px 0 0;
+}
+.spa-shell-head-nav ul li.logo{
+  display: flex;
+  margin : 0;
+  font-size: 23px !important;
+}
+.spa-shell-head-nav ul li.logo a{
+  display: flex;
+  margin : 0;
+  font-size: 20px !important;
+}
+
+.spa-shell-head-nav ul li.logo img{
+  width: 30px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.spa-shell-head-nav ul li.active{
+  background:#eee;
+}
+
+.spa-shell-head-nav ul li:hover{
+  background:#eee;
+}
+
+.spa-shell-head-nav ul li.active a{
+  color:#0D47A1 !important;
+  font-weight: 500;
+}
+
+.spa-shell-head-nav ul li:hover a{
+  color:#0D47A1 !important;
+}
+
+.spa-shell-head-nav ul li a{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  height: 35px;
+  margin: 0;
+  padding: 0 15px;
+  font-weight: 500;
+}
+.spa-shell-head-nav ul li a .icon{
+  
+}
+.spa-shell-head-menu {
+  top: 4px;
+  left       : 4px;
+  height: 30px;
+  width: 42px;
+  font-size: 30px;
+  display    : flex;
+  align-items: center;
+  justify-content:  center;
+}
+
+.spa-shell-head-logo {
+  top: 4px;
+  left: 35px;
+  height: 30px;
+  width: 100px;
+  display    : flex;
+  align-items: center;
+  justify-content:  center;
+}
+
+.spa-shell-head-logo h1{
+  margin : 0;
+  font-size: 20px;
+}
+
+.spa-shell-head-acct {
+  top: 4px;
+  right      : 0;
+  height: 30px;
+  display    : flex;
+  align-items: center;
+  justify-content:flex-end;
+  color: #fff;
+}
+
+.spa-shell-head-acct ul{
+  display : flex;
+  align-items : center;
+}
+
+.spa-shell-head-acct ul li{
+  display : flex;
+  align-items : center;
+}
+
+.spa-shell-head-acct ul li>a{
+  display : flex;
+  flex-direction : row;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 0 0px 5px;
+  border-radius : 5px;
+  color: #fff;
+}
+
+.spa-shell-head-acct ul li>a:hover{
+  background : #1565C0;
+}
+
+.spa-shell-head-acct ul li>ul li a{
+  color : #000;
+}
+
+.spa-shell-head-acct ul li>ul li a:hover{
+  color : #1565C0;
+  background : #fff;
+}
+
+.spa-shell-head-acct ul li>ul{
+  display : none;
+}
+
+.spa-shell-head-acct ul li.active>ul{
+  display : flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+  position : absolute;
+  top : 100%;
+  /* width : 100%; */
+  right: 5px;
+  /* height : 250px; */
+  z-index: 99;
+  background : #fff;
+  border : 1px solid #ddd;
+}
+
+.spa-shell-head-acct ul li.active>ul li{
+  display: flex;
+  width: 100%;
+}
+
+.spa-shell-head-acct ul li.active>ul li a{
+  display: flex;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.spa-shell-head-acct img{
+  width: 30px;
+  margin: 0 5px;
+}
+.spa-shell-head-acct span{
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.spa-shell-head-acct .avtr{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.spa-shell-head-search {
+  top        : 4px;
+  left: 248px;
+  width: 350px;
+  /* border: 1px solid; */
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+.spa-shell-head-search input[type=text]{
+  width: 100%;
+  height: 42px;
+  border: 1px solid #3775dd;
+  padding-left: 8px !important;
+  font-size: 17px !important;
+  color: #3f3f3f !important;
+  border: 1px solid #3372e0 !important;
+  box-shadow: none !important;
+  border-radius: 2px;
+  height: 34px;
+}
+
+.spa-shell-main {
+  top: 40px;
+  left   : 0;
+  bottom: 0;
+  right  : 0;
+  background: #eee;
+  margin: 10px;
+}
+
+.spa-shell-main .wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* margin: 10px; */
+  /* box-sizing: content-box; */
+}
+
+.spa-shell-main-content{
+  top: 40px;
+  bottom : 0;
+}
+/*.spa-shell-main-nav {
+  width  : 250px;
+  background : #eee;
+}
+  .spa-x-closed .spa-shell-main-nav {
+    width  : 0;
+  }*/
+
+.spa-shell-main-content {
+  left: 0;
+  right : 0;
+  /* background: #ddd; */
+  overflow-y: auto;
+}
+  .spa-x-closed .spa-shell-main-content {
+    left : 0;
+  }
+
+.spa-shell-foot {
+  bottom : 0;
+  left   : 0;
+  right  : 0;
+  height : 40px;
+}
+.spa-shell-chat {
+  bottom        : 0;
+  right         : 0;
+  width         : 300px;
+  height        : 15px;
+  cursor        : pointer;
+  background    : red;
+  border-radius : 5px 0 0 0;
+  z-index       : 1;
+}
+  .spa-shell-chat:hover {
+    background : #a00;
+  }
+
+.spa-shell-modal {
+  display       : none; 
+  margin-top    : -200px;
+  margin-left   : -200px;
+  top           : 50%;
+  left          : 50%;
+  width         : 400px;
+  height        : 400px;
+  background    : #fff;
+  border-radius : 3px;
+  z-index       : 2;
+}

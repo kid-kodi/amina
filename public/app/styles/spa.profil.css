@@ -1,0 +1,62 @@
+.spa-profil, .spa-profil-head, .spa-profil-main, 
+.spa-profil-main-nav, .spa-profil-main-content{
+  position: absolute;
+}
+
+.spa-profil{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.spa-profil-head{
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  padding: 0 15px;
+}
+
+.spa-profil-main{
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.spa-profil-main-nav{
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+}
+
+  .spa-profil-main-nav ul{
+    display: flex;
+    align-items: center;
+  }
+  .spa-profil-main-nav ul li{
+    display: flex;
+    align-items: center;
+    border-bottom : 3px solid transparent;
+    margin: 0 0 0 15px;
+  }
+  .spa-profil-main-nav ul li.active{
+    border-bottom : 3px solid #0D47A1;
+  }
+  .spa-profil-main-nav ul li:hover{
+    border-bottom : 3px solid #0D47A1;
+  }
+  .spa-profil-main-nav ul li a{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+.spa-profil-main-content{
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

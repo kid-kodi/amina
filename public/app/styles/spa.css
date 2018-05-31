@@ -1,0 +1,135 @@
+/*
+ * spa.css
+ * Root namespace styles
+*/
+
+/** Begin reset */
+  * {
+    margin  : 0;
+    padding : 0;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+  }
+  h1,h2,h3,h4,h5,h6,p {/* margin-bottom : 10px; */font-weight: 400;}
+  ol,ul,dl { list-style-position : inside; list-style: none;}
+  .title{font-weight: 400;/* padding: 0 20px; */height: 40px;line-height: 40px;}
+/** End reset */
+
+/** Begin standard selectors */
+  body {
+    /*font : 13px 'Raleway', Verdana, Helvetica, Arial, sans-serif;*/
+    font: 15px/1.25 "Helvetica Neue","Segoe UI",Helvetica,Arial,"Lucida Grande",sans-serif;
+    color            : #444;
+    background-color : #fafafc!important;
+  }
+  a { text-decoration : none; }
+    a:link, a:visited {/* color : inherit; */}
+    a:hover { text-decoration: none; }
+
+  strong {
+    font-weight : 800;
+    color       : #000;
+  }
+/** End standard selectors */
+
+/** Begin spa namespace selectors */
+  #spa {
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    bottom   : 0;
+    right    : 0;
+    min-height : 500px;
+    min-width  : 500px;
+    overflow   : hidden;
+    background-color: #eee;
+    border-radius    : 0 0 0 0;
+  }
+/** End spa namespace selectors */
+
+/** Begin utility selectors */
+  .spa-x-select {}
+  .spa-x-clearfloat {
+    height     : 0      !important;
+    float      : none   !important;
+    visibility : hidden !important;
+    clear      : both   !important;
+  }
+/** End utility selectors */
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+Pseudo ::scrollbar-thumb element
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(160,160,160,0.8);
+}
+Pseudo ::scrollbar-track element
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-track {
+    background: #EEE;
+}
+
+
+/*THEME COLOR*/
+/*--black: #000;
+    --blackTranslucent40: rgba(0, 0, 0, 0.4);
+    --white: #fff;
+    --whiteTranslucent40: rgba(255, 255, 255, 0.4);
+    --neutralDark: #212121;
+    --neutralPrimary: #333333;
+    --neutralPrimaryAlt: #3c3c3c;
+    --neutralSecondary: #666666;
+    --neutralTertiary: #a6a6a6;
+    --neutralTertiaryAlt: #c8c8c8;
+    --neutralQuaternary: #d0d0d0;
+    --neutralQuaternaryAlt: #dadada;
+    --neutralLight: #eaeaea;
+    --neutralLighter: #f4f4f4;
+    --neutralLighterAlt: #f8f8f8;
+    --flaggedMessage: #fffdd9;
+    --richUserContentBackground: #fff;
+    --composeNeutralBackground: #fff;
+    --composeNeutralLighterBackground: #f4f4f4;
+    --themeDarker: #004578;
+    --themeDark: #005A9E;
+    --themeDarkAlt: #106EBE;
+    --themePrimary: #0078D7;
+    --themeSecondary: #2B88D8;
+    --themeTertiary: #71AFE5;
+    --themeLight: #C7E0F4;
+    --themeLighter: #DEECF9;
+    --themeLighterAlt: #EFF6FC;
+    --headerBackground: #0078D7;
+    --headerBackgroundSearch: #005A9E;
+    --headerBrandText: #FFFFFF;
+    --headerTextIcons: #FFFFFF;
+    --headerSearchBoxBackground: rgba(255,255,255,0.7);
+    --headerSearchBoxIcon: #004578;
+    --headerSearchPlaceholderText: #004578;
+    --headerSearchButtonBackground: #0078D7;
+    --headerSearchButtonBackgroundHover: #004578;
+    --headerSearchButtonIcon: #FFFFFF;
+    --headerSearchFilters: #0078D7;
+    --headerSearchFiltersHover: #004578;
+    --headerButtonsBackground: #0078D7;
+    --headerButtonsBackgroundHover: #005A9E;
+    --headerButtonsBackgroundSearch: #005A9E;
+    --headerButtonsBackgroundSearchHover: #004578;
+    --headerBadgeBackground: #004578;
+    --headerBadgeText: #FFFFFF;
+    --headerSearchIcon: #FFFFFF;
+    --searchBoxBackground: rgba(255,255,255,0.7);
+    --fallback-black: #000;
+    --fallback-blackTranslucent40: rgba(0, 0, 0, 0.4);*/

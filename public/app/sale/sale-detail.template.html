@@ -1,0 +1,56 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.sale.customer.name}}</h3>
+			<a href="#/sale">back to sale list</a>
+		</div>
+		<div class="d-flex align-items-center">
+			<h3 class="text-primary" ng-show="$ctrl.sale.status == 1">PAID</h3>
+			<h3 class="text-danger" ng-show="$ctrl.sale.status == 2">CANCEL</h3>
+            <h3 class="text-danger" ng-show="$ctrl.sale.status == 0">{{$ctrl.sale.amount | number}} F.CFA</h3>
+		</div>
+		<div class="d-flex align-items-center">
+			<button class="btn btn-secondary" ng-click="$ctrl.print()">Print</button>
+            <a class="btn btn-danger" ng-show="$ctrl.sale.status == 0" href="#/sale/edit/{{$ctrl.sale._id}}">edit</a>
+		</div>
+	</div>
+	<div class="main">
+		<div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product / Service</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price ( F.CFA )</th>
+                        <th>Total ( F.CFA )</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in $ctrl.sale.items">
+                        <td>
+                        	<label>{{item.item_name}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.description}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.quantity}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.price}}</label>
+                        </td>
+                        <td>
+                            {{item.quantity * item.price | number}}
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="3"></td>
+                    	<td>Total</td>
+                    	<td>{{$ctrl.sale.amount | number}} F.CFA</td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+</div>

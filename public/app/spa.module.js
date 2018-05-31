@@ -1,0 +1,27 @@
+angular.module('spa', [
+  'ngRoute',
+  'googlechart',
+  'ngCookies',
+  'ngAnimate',
+  'angularMoment', 
+  'moment-picker',
+  'ngFileUpload',
+  'ngResource',
+  'checklist-model',
+  'angucomplete-alt',
+  'customerApp',
+  'itemApp',
+  'saleApp',
+  'supplierApp',
+  'expenseApp',
+  'paymentApp',
+  'reportApp',
+  'userApp',
+  'roleApp',
+  'sidenavApp',
+  'settingApp',
+  'profilApp',
+  'topnavApp',
+  'dashboardApp'
+  ]
+);

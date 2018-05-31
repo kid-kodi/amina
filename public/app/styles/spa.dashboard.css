@@ -1,0 +1,70 @@
+.spa-dashboard{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.spa-dashboard .card{
+  background: #fff;
+  display: table;
+  width: 100%;
+  height: 115px;
+}
+
+.spa-dashboard .card-list{
+  background: #fff;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.card .card-container, .card-list .card-container {
+    display: table-cell;
+    vertical-align: middle;
+    width: 30%;
+    position: relative;
+    text-align: center;
+}
+.card-container {
+    padding: 15px;
+}
+
+.card .card-values, .card-list .card-values {
+    display: table-cell;
+    vertical-align: text-top;
+    padding: 20px;
+    font-size: 17px;
+    border-left: 1px solid #dcdae1;
+}
+
+.card .card-values h2, .card-list .card-values h2{
+  font-size : 21px;
+}
+
+
+
+.card .card-values .bottom-card, .card-list .card-values .bottom-card {
+    margin-top: 10px;
+}
+
+.shadow {
+    box-shadow: 1px 1px 7px 0 rgba(145,145,145,.5);
+}
+
+.card .icon{
+  font-size: 30px;
+}
+
+.card ul.inline{
+  display: flex;
+  align-items: center;
+}
+
+.card ul li{
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
