@@ -97,9 +97,11 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
               created_by    : user.id,
             });
 
-              alert( item.item_type );
-            if ( item.item_type == 'product' ) {
-              alert();
+
+            alert(item.item_id);
+            alert(item.quantity);
+            alert(item.item_type);
+            if ( item.item_type == 'produit' ) {
               //update stock
               db.item.get({id:item.item_id}).$promise.then( function( _item ){
                 var new_quantity =  _item.quantity + item.quantity;
@@ -145,6 +147,16 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
               created_at    : today,
               created_by    : user.id,
             });
+
+            alert(item.item_type);
+
+            if ( item.item_type == 'produit' ) {
+              //update stock
+              db.item.get({id:item.item_id}).$promise.then( function( _item ){
+                var new_quantity =  _item.quantity - item.quantity;
+                db.item.update({id:_item._id}, {quantity : new_quantity});
+              });
+            }
           }
         }
       db.sale.update({id:saleId},{balance:balance,paid:paid, status:status});

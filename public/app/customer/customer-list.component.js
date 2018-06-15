@@ -41,6 +41,7 @@
 
 			customerDB.get_list( $routeParams.list, function( result_list ){
 				ctrl.list = result_list;
+				console.log( result_list );
 			});
 		}
 	}

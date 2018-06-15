@@ -9,6 +9,7 @@ angular.module('spa', [
   'ngResource',
   'checklist-model',
   'angucomplete-alt',
+  'pascalprecht.translate',
   'customerApp',
   'itemApp',
   'saleApp',

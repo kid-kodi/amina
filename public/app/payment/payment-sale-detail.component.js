@@ -15,17 +15,16 @@
 
 		ctrl.save = function(){
 			paymentDB.create( ctrl.payment, function( result_map ){
-				alert();
 				$location.path('/payment');
 			});
 		};
 
 		ctrl.print = function(){
 			var 
-		        print_obj_map = {};
+        print_obj_map = {};
 
-		        print_obj_map.com = ctrl.sale;
-		        printer.print('templates/invoice.html', print_obj_map);
+        print_obj_map.com = ctrl.sale;
+        printer.print('templates/invoice.html', print_obj_map);
 		};
 
 		ctrl.$onInit = function(){

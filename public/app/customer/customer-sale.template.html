@@ -5,79 +5,103 @@
 			<a href="#/customer/{{$ctrl.customer._id}}">back to customer</a>
 		</div>
 		<div>
-            <h3>{{$ctrl.sale.amount = ($ctrl.sale.items | totalSumPriceQty:'quantity':'price') | number}} F.CFA</h3>
+      <h3>{{$ctrl.sale.amount = ($ctrl.sale.items | totalSumPriceQty:'quantity':'price') | number}} F.CFA</h3>
 		</div>
 	</div>
-	<div class="main">
-		<form name="form" novalidate>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
-                        <th>Product / Service</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price ( F.CFA )</th>
-                        <th>Total ( F.CFA )</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in $ctrl.sale.items">
-                        <td>
-                            <input type="checkbox" ng-model="item.selected"/>
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" ng-model="item.item_name"/>
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" ng-model="item.description"/>
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" ng-model="item.quantity"/>
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" ng-model="item.price"/>
-                        </td>
-                        <td>
-                            {{item.quantity * item.price | number}}
-                        </td>
-                    </tr>
-                    <tr ng-show="$ctrl.showAddItem==true">
-                        <td></td>
-                        <td>
-                            <div class="dropdown">
-                            	<angucomplete-alt id="ex2"
-		                        placeholder="Search product or service"
-		                        pause="300"
-		                        selected-object="$ctrl.setItem"
-		                        local-data="$ctrl.items"
-		                        search-fields="name"
-		                        title-field="name"
-		                        minlength="1"
-		                        input-class="form-control"
-		                        match-class="highlight" />
-                                <!--  -->
-                            </div>
-                        </td>
-                        <td colspan="4"></td>
-                    </tr>
-                </tbody>
-            </table>
-			<div class="bar">
-				<div>
-                    <button class="btn btn-secondary" ng-click="$ctrl.showAddItem=true">Add line</button>
-                    <button class="btn btn-secondary" ng-click="$ctrl.clear_items()">Clear all</button>
-                    <button class="btn btn-light" ng-click="$ctrl.remove()">Remove selection</button>
-				</div>
-			</div>
-		</form>
-		<div class="bar footer">
-			<div>
-				<a role="button" class="btn btn-light" href="#/customer/{{$ctrl.customer._id}}">Annuler</a>
-			</div>
-			<div>
-				<button ng-disabled="$ctrl.sale.items.length==0" class="btn btn-success" ng-click="$ctrl.save()">Save and close</button>
-			</div>
-		</div>
-	</div>
+    <div class="card p-2">
+        
+      <div class="btn-toolbar justify-content-between mb-2">
+          
+        <div class="d-flex flex-row">
+            <input class="form-control"
+               ng-model="$ctrl.sale.sent_date"
+               ng-model-options="{ updateOn: 'blur' }"
+               placeholder="Date d'envoi."
+               moment-picker="$ctrl.sale.sent_date"
+               format="YYYY-MM-DD"
+               max-date="$ctrl.sale.due_date">
+            
+            <input class="form-control"
+               ng-model="$ctrl.sale.due_date"
+               ng-model-options="{ updateOn: 'blur' }"
+               placeholder="Date de reglement."
+               moment-picker="$ctrl.sale.due_date"
+               format="YYYY-MM-DD"
+               min-date="$ctrl.sale.sent_date">
+        </div>
+
+      </div>
+    	<div class="main">
+    		<form name="form" novalidate>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
+                            <th>Product / Service</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price ( F.CFA )</th>
+                            <th>Total ( F.CFA )</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in $ctrl.sale.items">
+                            <td>
+                                <input type="checkbox" ng-model="item.selected"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" ng-model="item.item_name"/>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" ng-model="item.description"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" ng-model="item.quantity"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" ng-model="item.price"/>
+                            </td>
+                            <td>
+                                {{item.quantity * item.price | number}}
+                            </td>
+                        </tr>
+                        <tr ng-show="$ctrl.showAddItem==true">
+                            <td></td>
+                            <td>
+                                <div class="dropdown">
+                                	<angucomplete-alt id="ex2"
+    		                        placeholder="Search product or service"
+    		                        pause="300"
+    		                        selected-object="$ctrl.setItem"
+    		                        local-data="$ctrl.items"
+    		                        search-fields="name"
+    		                        title-field="name"
+    		                        minlength="1"
+    		                        input-class="form-control"
+    		                        match-class="highlight" />
+                                    <!--  -->
+                                </div>
+                            </td>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tbody>
+                </table>
+    			<div class="bar">
+    				<div>
+              <button class="btn btn-secondary" ng-click="$ctrl.showAddItem=true">Ajouter une ligne</button>
+              <button class="btn btn-secondary" ng-click="$ctrl.clear_items()">Tout supprimer</button>
+              <button class="btn btn-light" ng-click="$ctrl.remove()">Supprimer selection</button>
+    				</div>
+    			</div>
+    		</form>
+    		<div class="bar footer">
+    			<div>
+    				<a role="button" class="btn btn-light" href="#/customer/{{$ctrl.customer._id}}">Annuler</a>
+    			</div>
+    			<div>
+    				<button ng-disabled="$ctrl.sale.items.length==0" class="btn btn-success" ng-click="$ctrl.save()">Enregistrer et fermer</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
 </div>

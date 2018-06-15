@@ -9,7 +9,7 @@ function config($routeProvider) {
     .when( '/sale/:saleId', {
       template: '<sale-detail></sale-detail>',
     })
-    .when( '/sale/edit/:saleId', {
+    .when( '/sale/:saleId/customer/:customerId', {
       template: '<sale-edit></sale-edit>',
     });
 }

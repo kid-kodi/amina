@@ -4,7 +4,7 @@
 		  <div class="col-sm-6">
 		    <div class="card">
 		      <div class="card-body">
-		      	<h3>Outcoume</h3>
+		      	<h3>Impayé</h3>
 				<span>{{$ctrl.list | filter:{status:0} | sumOfValue:'amount' | number}} F.CFA</span>
 		      </div>
 		    </div>
@@ -12,7 +12,7 @@
 		  <div class="col-sm-6">
 		    <div class="card">
 		      <div class="card-body">
-		        <h3>Paid</h3>
+		        <h3>Payé</h3>
 				<span>{{$ctrl.list | filter:{status:1} | sumOfValue:'amount' | number}} F.CFA</span>
 		      </div>
 		    </div>
@@ -24,10 +24,10 @@
 			</div>
 			<div class="col-sm-6 d-flex justify-content-end">
 				<select class="form-control" ng-model="$ctrl.search.status">
-					<option value="">All</option>
-					<option value="0">Pending</option>
-					<option value="1">Paid</option>
-					<option value="2">Cancelled</option>
+					<option value="">Tout</option>
+					<option value="0">En attente</option>
+					<option value="1">Payé</option>
+					<option value="2">Annulé</option>
 					<option value="3">Partiel</option>
 				</select>
 			</div>
@@ -38,12 +38,12 @@
 					<tr>
 						<th>Date</th>
 						<th>NO.</th>
-						<th>Customer</th>
-						<th>Balance</th>
-						<th>Amount</th>
-						<th>Status</th>
+						<th>Client</th>
+						<th>Reste à payé</th>
+						<th>Montant</th>
+						<th>Statut</th>
 						<th class="last">
-							Action
+							Actions
 						</th>
 					</tr>
 				</thead>
@@ -57,16 +57,16 @@
 						<td>{{c.balance}} F.CFA</td>
 						<td>{{c.amount}} F.CFA</td>
 						<td>
-							<b ng-show="{{c.status==0}}">Pending</b>
-							<b ng-show="{{c.status==1}}">Paid</b>
-							<b ng-show="{{c.status==2}}">Cancelled</b>
+							<b ng-show="{{c.status==0}}">En attente</b>
+							<b ng-show="{{c.status==1}}">Payé</b>
+							<b ng-show="{{c.status==2}}">Annulé</b>
 							<b ng-show="{{c.status==3}}">Partiel</b>
 						</td>
 						<td class="last">
 							<a href="#/payment/sale/{{c._id}}">
-								<span ng-show="{{c.status==0}}"> Make payment</span>
+								<span ng-show="{{c.status==0}}"> Effectué un paiement</span>
 								<span ng-show="{{c.status==1}}"> Details</span>
-								<span ng-show="{{c.status==2}}"> Cancelled</span>
+								<span ng-show="{{c.status==2}}"> Annulé</span>
 								<span ng-show="{{c.status==3}}"> Details</span>
 							</a>
 						</td>
@@ -78,7 +78,7 @@
 
 	<div class="panel" ng-show="$ctrl.list.length == 0">
 		<div class="empty-list">
-			<h3 class="text-center">No sales</h3>
+			<h3 class="text-center">Pas de vente</h3>
 		</div>
 	</div>
 </div>

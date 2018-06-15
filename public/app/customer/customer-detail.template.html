@@ -2,11 +2,11 @@
 	<div class="bar">
 		<div>
 			<h3 class="title">{{$ctrl.customer.name}}</h3>
-			<a href="#/customer">back to customer list</a>
+			<a href="#/customer">retour à la liste</a>
 		</div>
 		<div>
 			<button class="btn btn-secondary" ng-click="$ctrl.editMode = true">Modifier</button>
-			<a class="btn btn-success" href="#/customer/{{$ctrl.customer._id}}/sale/0">New sale</a>
+			<a class="btn btn-success" href="#/customer/{{$ctrl.customer._id}}/sale/0">Nouvelle vente</a>
 		</div>
 	</div>
 	<my-tabs>
@@ -37,7 +37,7 @@
 							<b ng-show="c.status==2">Cancelled</b>
 						</td>
 						<td class="last">
-							<a ng-show="c.status==0" href="#/customer/{{c.customer_id}}/sale/{{c._id}}">Edit</a>
+							<a ng-show="c.status==0" href="#/customer/{{c.customer_id}}/sale/{{c._id}}">Modifier</a>
 							<a ng-show="c.status==1" href="" ng-click="$ctrl.printSale( c )">Print</a>
 							<b ng-show="c.status==2">Dismiss</b>
 						</td>
@@ -47,7 +47,7 @@
 	    </div>
 	    <div ng-show="$ctrl.sales.length == 0">
 	    	<div class="empty-list">
-				<h3 class="text-center">No sales</h3>
+				<h3 class="text-center">Aucune vente</h3>
 	    	</div>
 		</div>
 
@@ -55,16 +55,16 @@
 	  <my-pane title="Customer details">
 	    <div class="container">
 	    	<div class="row p-2">
+	    		<div class="col-sm-2">Company name</div>
+	    		<div class="col-sm-10">{{$ctrl.customer.name}}</div>
+	    	</div>
+	    	<div class="row p-2">
 	    		<div class="col-sm-2">First name</div>
 	    		<div class="col-sm-10">{{$ctrl.customer.first_name}}</div>
 	    	</div>
 	    	<div class="row p-2">
 	    		<div class="col-sm-2">Last name</div>
 	    		<div class="col-sm-10">{{$ctrl.customer.last_name}}</div>
-	    	</div>
-	    	<div class="row p-2">
-	    		<div class="col-sm-2">Company name</div>
-	    		<div class="col-sm-10">{{$ctrl.customer.name}}</div>
 	    	</div>
 	    	<div class="row p-2">
 	    		<div class="col-sm-2">Email</div>

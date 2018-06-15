@@ -128,7 +128,7 @@ main{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 50px;
+	/* height: 50px; */
 }
 .bar .title{
 	color: #0078D7;
@@ -178,8 +178,26 @@ table th{	text-transform: uppercase;
 
 .empty-list{
 	height: 300px;
-	width: 200px;
-	margin: 30px auto;
+	margin: auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: #666666;
+}
+
+.empty-list h3{
+	color: #0078D7;
+    font-size: 32px;
 }
 
 

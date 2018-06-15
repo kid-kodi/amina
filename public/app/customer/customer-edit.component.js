@@ -1,6 +1,6 @@
 (function() {
 	
-	function CustomerEditController( $scope, customerDB ){
+	function CustomerEditController( $scope, customerDB, $routeParams ){
 		var ctrl = this;
 
 		ctrl.close = function(){
@@ -37,7 +37,8 @@
 		}
 
 		ctrl.$onInit = function(){
-			ctrl.users = customerDB.user_list();
+			// var customerId = $routeParams.customerId;
+			// ctrl.customer = customerDB.getCustomer( customerId );
 		}
 	}
 
@@ -45,7 +46,7 @@
 	.module('customerEdit')
 	.component('customerEdit',{
 		templateUrl : 'customer/customer-edit.template.html',
-		controller : ['$scope', 'customerDB', CustomerEditController],
+		controller : ['$scope', 'customerDB', '$routeParams', CustomerEditController],
 		bindings : {
 			customer : '<',
 			onClose  : '&',

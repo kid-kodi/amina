@@ -8,8 +8,16 @@ factory('supplierDB', [ 'DB', 'AlertService', '$cookies',
 
     var user = $cookies.getObject( 'inchallah' ) || {};
     
-    var get_list = function(){
-      return db.supplier.query();
+    var get_list = function( list_type, callback ){
+      db.supplier.query( list_type )
+      .$promise.then( function( result_map ){
+        var suppliers = [];
+        angular.forEach( result_map, function(supplier, key) {
+          supplier.expenses = db.expense.query({ supplier_id : supplier._id });
+          suppliers.push( supplier );
+        });
+        callback( suppliers );
+      });
     };
 
     var create = function( supplier, callback ){
@@ -82,6 +90,7 @@ factory('supplierDB', [ 'DB', 'AlertService', '$cookies',
 
     var updateExpense = function( expenseId, expense, callback ){
       expense.updated_at = today;
+      expense.balance    = expense.amount;
       expense.updated_by = user.id;
       db.expense.update({ id : expenseId }, expense )
       .$promise.then( function( result_map ){

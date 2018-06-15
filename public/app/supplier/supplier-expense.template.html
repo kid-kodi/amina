@@ -2,23 +2,45 @@
 	<div class="bar">
 		<div>
 			<h3 class="title">{{$ctrl.supplier.name}}</h3>
-			<a href="#/supplier/{{$ctrl.supplier._id}}">back to supplier</a>
+			<a href="#/supplier/{{$ctrl.supplier._id}}">retour au fournisseur</a>
 		</div>
 		<div>
-            <h3>{{$ctrl.expense.amount = ($ctrl.expense.items | totalSumPriceQty:'quantity':'cost') | number}} F.CFA</h3>
+      <h3>{{$ctrl.expense.amount = ($ctrl.expense.items | totalSumPriceQty:'quantity':'cost') | number}} F.CFA</h3>
 		</div>
 	</div>
+  <div class="card p-2">
+  <div class="btn-toolbar justify-content-between mb-2">
+          
+    <div class="d-flex flex-row">
+        <input class="form-control"
+           ng-model="$ctrl.expense.sent_date"
+           ng-model-options="{ updateOn: 'blur' }"
+           placeholder="Date d'envoi."
+           moment-picker="$ctrl.expense.sent_date"
+           format="YYYY-MM-DD"
+           max-date="$ctrl.expense.due_date">
+        
+        <input class="form-control"
+           ng-model="$ctrl.expense.due_date"
+           ng-model-options="{ updateOn: 'blur' }"
+           placeholder="Date de reglement."
+           moment-picker="$ctrl.expense.due_date"
+           format="YYYY-MM-DD"
+           min-date="$ctrl.expense.sent_date">
+    </div>
+
+  </div>
 	<div class="main">
 		<form name="form" novalidate>
             <table class="table">
                 <thead>
                     <tr>
                         <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
-                        <th>Product / Service</th>
+                        <th>Produit / Service</th>
                         <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price ( F.CFA )</th>
-                        <th>Total ( F.CFA )</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,9 +87,9 @@
             </table>
 			<div class="bar" ng-show="$ctrl.expense.status == 0">
 				<div>
-                    <button class="btn btn-secondary" ng-click="$ctrl.showAddItem=true">Add line</button>
-                    <button class="btn btn-secondary" ng-click="$ctrl.clear_items()">Clear all</button>
-                    <button class="btn btn-light" ng-click="$ctrl.remove()">Remove selection</button>
+                    <button class="btn btn-secondary" ng-click="$ctrl.showAddItem=true">Ajouter une ligne</button>
+                    <button class="btn btn-secondary" ng-click="$ctrl.clear_items()">Tout supprimer</button>
+                    <button class="btn btn-light" ng-click="$ctrl.remove()">Supprimer selection</button>
 				</div>
 			</div>
 		</form>
@@ -76,8 +98,9 @@
 				<a role="button" class="btn btn-light" href="#/supplier/{{$ctrl.supplier._id}}">Annuler</a>
 			</div>
 			<div>
-				<button ng-disabled="$ctrl.expense.items.length==0" class="btn btn-success" ng-click="$ctrl.save()">Save and close</button>
+				<button ng-disabled="$ctrl.expense.items.length==0" class="btn btn-success" ng-click="$ctrl.save()">Enregistrer et fermer</button>
 			</div>
 		</div>
+  </div>
 	</div>
 </div>

@@ -1,7 +1,11 @@
 (function() {
 	
-	function TopnavController( $scope, topnavDB){
+	function TopnavController( $scope, $translate, topnavDB){
 		var ctrl = this;
+
+		ctrl.setLanguage = function( langKey ){
+			$translate.use(langKey);
+		}
 
 
 		ctrl.$onInit = function(){
@@ -17,7 +21,7 @@
 	.module('topnavApp')
 	.component('topnav',{
 		templateUrl : 'topnav/topnav.template.html',
-		controller : ['$scope', 'topnavDB', TopnavController]
+		controller : ['$scope', '$translate', 'topnavDB', TopnavController]
 	})
 
 })();

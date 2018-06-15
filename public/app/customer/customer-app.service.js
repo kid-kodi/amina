@@ -20,7 +20,12 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
 
         db.customer.query( _map )
         .$promise.then( function( result_map ){
-          callback( result_map );
+          var customers = [];
+          angular.forEach( result_map, function(customer, key) {
+            customer.sales = db.sale.query({ customer_id:customer._id });
+            customers.push( customer );
+          });
+          callback( customers );
         });
       });
     };
@@ -28,6 +33,7 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
     var create = function( customer, callback ){
       customer.created_at = today;
       customer.created_by = user.id;
+      customer.overdue    = 0;
       db.customer.create( customer )
       .$promise.then( function( result_map ){
         if ( result_map.result.ok == 1 ) {
@@ -57,8 +63,10 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
       });
     };
 
-    var getCustomer = function( customerId ){
-      return db.customer.get( { id : customerId } );
+    var getCustomer = function( id ){
+      if ( id ) {
+        return db.customer.get( { id : id } );
+      }
     };
 
     var getSale = function( saleId ){
@@ -101,6 +109,7 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
     };
 
     var updateSale = function( saleId, sale, callback ){
+      sale.balance    = sale.amount;
       sale.updated_at = today;
       sale.updated_by = user.id;
       db.sale.update({ id : saleId }, sale )
@@ -120,18 +129,26 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
       });
     }
 
+
+    var new_customer = function(){
+      return {
+
+      }
+    }
+
     return {
-      getCustomer : getCustomer,
-      getSale    : getSale,
-      createSale : createSale,
-      updateSale : updateSale,
-      user_list   : user_list,
-      sale_list  : sale_list,
-      get_list    : get_list,
-      get_items   : get_items,
-      new_sale   : new_sale,
-      create      : create,
-      update      : update
+      new_customer : new_customer,
+      getCustomer  : getCustomer,
+      getSale      : getSale,
+      createSale   : createSale,
+      updateSale   : updateSale,
+      user_list    : user_list,
+      sale_list    : sale_list,
+      get_list     : get_list,
+      get_items    : get_items,
+      new_sale     : new_sale,
+      create       : create,
+      update       : update
     };
   }
 ]);

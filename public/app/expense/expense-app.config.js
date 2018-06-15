@@ -8,6 +8,9 @@ function config($routeProvider) {
     })
     .when( '/expense/:expenseId', {
       template: '<expense-detail></expense-detail>'
+    })
+    .when( '/expense/:expenseId/supplier/:supplierId', {
+      template: '<expense-edit></expense-edit>',
     });
 }
 ]);

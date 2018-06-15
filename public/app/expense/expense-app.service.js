@@ -12,7 +12,7 @@ factory('expenseDB', [ 'DB', 'AlertService', '$cookies',
       return db.expense.query();
     };
 
-    var create = function( expense, callback ){
+    var createExpense = function( expense, callback ){
       new_number( function( number ){
         expense.number     = number;
         expense.balance    = expense.amount;
@@ -28,12 +28,12 @@ factory('expenseDB', [ 'DB', 'AlertService', '$cookies',
       })
     };
 
-    var update = function( expenseId, expense, callback ){
+    var updateExpense = function( expenseId, expense, callback ){
       expense.updated_at = today;
+      expense.balance    = expense.amount;
       expense.updated_by = user.id;
       db.expense.update({ id : expenseId }, expense )
       .$promise.then( function( result_map ){
-        console.log( result_map );
         if ( result_map.update_count.ok == 1 ) {
           AlertService.Success('Expense information updated', true);
         }
@@ -42,35 +42,8 @@ factory('expenseDB', [ 'DB', 'AlertService', '$cookies',
     };
 
 
-    var validate = function( expenseId, expense, callback ){
-      expense.updated_at = today;
-      expense.updated_by = user.id;
-      db.expense.update({ id : expenseId }, 
-        { updated_at : today, updated_by : user.id, status : 1 } )
-      .$promise.then( function( result_map ){
-        console.log( result_map );
-        if ( result_map.update_count.ok == 1 ) {
-          AlertService.Success('Expense information updated', true);
-        }
-
-        for (var i = 0; i < expense.items.length; i++) {
-          item = expense.items[i];
-          db.transaction.create({
-            type          : 'Expense',
-            supplier_id   : item.supplier_id,
-            supplier_name : item.supplier_name,
-            item_type     : item.item_type,
-            item_id       : item.item_id,
-            item_name     : item.item_name,
-            quantity      : item.quantity,
-            price         : item.price,
-            cost          : item.cost,
-            total         : item.quantity * item.cost,
-            created_at    : today
-          });
-        }
-        callback( result_map );
-      });
+    var getExpense = function( expenseId ){
+      return db.expense.get( { id : expenseId } );
     };
 
 
@@ -98,7 +71,11 @@ factory('expenseDB', [ 'DB', 'AlertService', '$cookies',
     }
     var items     = function(){
       return db.item.query();
-    }
+    };
+
+    var getSupplier = function( supplierId ){
+      return db.supplier.get( { id : supplierId } );
+    };
 
     var getExpense = function( expenseId, callback ){
       db.expense.get({ id:expenseId })
@@ -108,15 +85,32 @@ factory('expenseDB', [ 'DB', 'AlertService', '$cookies',
       })
     };
 
+    var getItems = function(){
+      return db.item.query();
+    };
+
+    var newExpense = function( supplier ){
+      return {
+        supplier_id   : supplier._id,
+        supplier_name : supplier.name,
+        items         : [],
+        balance       : 0,
+        amount        : 0,
+        status        : 0
+      }
+    };
+
     return {
-      getExpense  : getExpense,
-      suppliers   : suppliers,
-      validate    : validate,
-      items       : items,
-      new_expense : new_expense,
-      get_list    : get_list,
-      create      : create,
-      update      : update
+      getItems      : getItems,
+      getExpense    : getExpense,
+      newExpense    : newExpense,
+      getSupplier   : getSupplier,
+      suppliers     : suppliers,
+      items         : items,
+      new_expense   : new_expense,
+      get_list      : get_list,
+      createExpense : createExpense,
+      updateExpense : updateExpense
     };
   }
 ]);

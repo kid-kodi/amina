@@ -1,8 +1,8 @@
 <div class="panel" ng-show="$ctrl.list.length > 0">
 	<div class="bar">
-		<h3 class="title">Supplier</h3>
+		<h3 class="title">Fournisseur</h3>
 		<div>
-			<button class="btn btn-success" ng-click="$ctrl.editSupplier()">New</button>
+			<button class="btn btn-success" ng-click="$ctrl.editSupplier()">Nouveau fournisseur</button>
 		</div>
 	</div>
 	<div class="row mb-2">
@@ -14,8 +14,7 @@
 		<thead>
 			<tr>
 				<th>Nom</th>
-				<th>Téléphone</th>
-				<th>Email</th>
+				<th>Reste à payer</th>
 				<th class="last">
 					Action
 				</th>
@@ -24,8 +23,8 @@
 		<tbody>
 			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
 				<td>{{c.name}}</td>
-				<td>{{c.phone}}</td>
-				<td>{{c.email}}</td>
+				<td>{{c.expenses | filter:{status:0} | sumOfValue:'balance' | number}}</td>
+				
 				<td class="last">
 					<div class="btn-group">
 					  <a  href="#/supplier/{{c._id}}" class="btn btn-link">Details</a>
@@ -33,7 +32,7 @@
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
 					  <div class="dropdown-menu dropdown-menu-right">
-					    <a class="dropdown-item" href="" ng-click="$ctrl.editSupplier( c )">Edit</a>
+					    <a class="dropdown-item" href="" ng-click="$ctrl.editSupplier( c )">Modifier</a>
 					  </div>
 					</div>
 				</td>
@@ -44,8 +43,8 @@
 
 <div class="panel" ng-show="$ctrl.list.length == 0">
 	<div class="empty-list">
-		<h3 class="text-center">No suppliers</h3>
-		<button ng-click="$ctrl.editSupplier()">New</button>
+		<h3 class="text-center">Pas de Fournisseur</h3>
+		<button class="btn btn-success" ng-click="$ctrl.editSupplier()">Nouveau fournisseur</button>
 	</div>
 </div>
 

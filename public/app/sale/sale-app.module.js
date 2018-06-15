@@ -3,4 +3,5 @@ angular.module('saleApp', [
 	'saleList',
 	'saleDetail',
 	'saleEdit',
+	'saleCustomers',
 ]);

@@ -13,8 +13,6 @@
 		    return array;
 		}
 
-		ctrl.list = supplierDB.get_list();
-
 		ctrl.editSupplier = function( supplier ){
 			ctrl.supplier = null;
 			if ( supplier != undefined ) {
@@ -39,6 +37,11 @@
 			ctrl.supplier   = null;
 			ctrl.editMode   = false;
 			ctrl.detailMode = false;
+
+			supplierDB.get_list( null, function( result_list ){
+				ctrl.list = result_list;
+				console.log( result_list );
+			});
 		}
 	}
 

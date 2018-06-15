@@ -2,6 +2,10 @@
   <div class="logo">
       <h1>AMINA</h1>
   </div>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.setLanguage('fr')">fr</button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.setLanguage('en')">en</button>
+  </div>
   <ul class="nav justify-content-end">
     <li class="nav-item" ng-show="$ctrl.role.sysadmin == true">
       <a class="nav-link" href="#/setting">
