@@ -35,10 +35,10 @@ angular.
       // });
       // add translation table
       // add translation tables
-      $translateProvider.translations('en', translationsEN);
-      $translateProvider.translations('fr', translationsFR);
-      $translateProvider.fallbackLanguage('fr');
-      $translateProvider.preferredLanguage('fr');
+      // $translateProvider.translations('en', translationsEN);
+      // $translateProvider.translations('fr', translationsFR);
+      // $translateProvider.fallbackLanguage('fr');
+      // $translateProvider.preferredLanguage('fr');
 
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|data|blob):/);
 

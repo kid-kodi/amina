@@ -88,7 +88,9 @@
 					ctrl.supplier = supplier;
 					var expenseId = $routeParams.expenseId;
 					if( expenseId != 0){
-						ctrl.expense = expenseDB.getExpense( expenseId );
+						expenseDB.getExpense( expenseId, function( expense ){
+							ctrl.expense = expense;
+						});
 					}
 					else{
 						ctrl.expense = expenseDB.newExpense( ctrl.supplier );

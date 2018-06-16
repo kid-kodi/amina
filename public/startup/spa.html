@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>amina</title>
+
+	<script src="../socket.io/socket.io.js"          ></script>
+  <script src="../vendors/angular.js"              ></script>
+  <script src="../vendors/angular-cookies.js"      ></script>
+  <script src="../vendors/angular-route.min.js"    ></script>
+  <script src="../vendors/angular-animate.min.js"  ></script>
+  <script src="../vendors/angular-resource.min.js" ></script>
+  <script src="../vendors/angular-locale_fr-fr.js" ></script>
+  <script src="../vendors/moment.js"               ></script>
+  <script src="../vendors/angular-moment.min.js"   ></script>
+  <script src="../vendors/angular-translate.js"    ></script>
+
+  <!-- our js -->
+  <script src="spa.module.js"    ></script>
+  <script src="spa.config.js"    ></script>
+  <script src="spa.socket.js"    ></script>
+  <script src="spa.directive.js" ></script>
+  <script src="spa.data.js"      ></script>
+  <script src="spa.filter.js"    ></script>
+
+  <script src="_services/alert.service.js"   ></script>
+
+  <script src="welcome/welcome.module.js"    ></script>
+  <script src="welcome/welcome.component.js" ></script>
+
+  <script src="setting/setting.module.js"    ></script>
+  <script src="setting/setting.component.js" ></script>
+
+  <script src="user/user.module.js"    ></script>
+  <script src="user/user.component.js" ></script>
+
+
+</head>
+<body ng-app="spa">
+  <div class="flash-message" ng-if="flash">
+    <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+  </div>
+	<div ng-view></div>
+</body>
+</html>

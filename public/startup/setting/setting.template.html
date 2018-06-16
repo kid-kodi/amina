@@ -1,0 +1,36 @@
+<form name="form" novalidate>
+	<div>
+		<label>Company name</label>
+		<input type="text" name="name" ng-model="$ctrl.setting.company_name" required>
+		<div ng-show="form.name.$touched && form.name.$invalid">
+			<span ng-show="form.name.$error.required">Setting name is required</span>
+		</div>
+	</div>
+	<div>
+		<label>Téléphone</label>
+		<input type="text" name="phone" ng-model="$ctrl.setting.phone" maxlength="8" required>
+		<div ng-show="form.phone.$touched && form.phone.$invalid">
+			<span ng-show="form.phone.$error.required">Setting phone number is required</span>
+		</div>
+	</div>
+	<div>
+		<label>Email</label>
+		<input type="email" name="email" ng-model="$ctrl.setting.email" required>
+		<div ng-show="form.email.$touched && form.email.$invalid">
+			<span ng-show="form.email.$error.required">Setting email adresse is required</span>
+			<span ng-show="form.email.$error.email">Valid email adresse is required</span>
+		</div>
+	</div>
+	<div>
+		<label>Adresse information</label>
+		<textarea cols="5" rows="5" name="adresse" ng-model="$ctrl.setting.adresse" required>
+		</textarea>
+		<div ng-show="form.adresse.$touched && form.adresse.$invalid">
+			<span ng-show="form.adresse.$error.required">adresse is required</span>
+		</div>
+	</div>
+	<div>
+		<button ng-disabled="form.$invalid" ng-click="$ctrl.save()">Save</button>
+		<a href="#/user">suivant</a>
+	</div>
+</form>
