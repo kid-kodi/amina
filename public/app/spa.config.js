@@ -51,8 +51,14 @@ angular.
     }
   ])
   .run( [
-    '$route', '$rootScope' , '$location' , '$window' , '$http' , 'amMoment', '$cookies', 'socket', '$locale',
-    function run( $route, $rootScope, $location, $window, $http, amMoment, $cookies, socket, $locale ) {
+    '$route', '$rootScope' , '$location' , '$window' , '$http' , 'amMoment', '$cookies', 'socket', '$locale', 'DB',
+    function run( $route, $rootScope, $location, $window, $http, amMoment, $cookies, socket, $locale, DB ) {
+
+        DB.setting.query().$promise.then( function( response ){
+          if(response.length == 0){
+            $window.location.href = '/';
+          }
+        });
 
         angular.element(document).on("click", function(e) { 
           $rootScope.$broadcast("documentClicked", angular.element(e.target)); 

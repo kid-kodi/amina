@@ -5,7 +5,6 @@
 
 		ctrl.save = function(){
 			if ( ctrl.setting._id ) {
-				alert();
 				var settingId = ctrl.setting._id;
 				delete ctrl.setting._id;
 				db.setting.update( {id:settingId}, ctrl.setting, function( result_map ){

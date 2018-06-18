@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>amina</title>
+  <link rel="stylesheet" href="../common/styles/bootstrap.css" >
+  <link rel="stylesheet" href="styles/theme.css"               >
 
 	<script src="../socket.io/socket.io.js"          ></script>
   <script src="../vendors/angular.js"              ></script>
@@ -36,9 +38,16 @@
 
 </head>
 <body ng-app="spa">
-  <div class="flash-message" ng-if="flash">
-    <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div>
+        <!-- Content here -->
+        <div class="flash-message" ng-if="flash">
+          <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+      	<div ng-view></div>
+      </div>
+    </div>
   </div>
-	<div ng-view></div>
 </body>
 </html>

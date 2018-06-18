@@ -1,0 +1,32 @@
+<h2>Definissez votre entreprise</h2>
+<p>Ces informations apparaîtrons sur vos factures, rapports etc....</p>
+<div class="form-group">
+	<label>Nom de votre entreprise</label>
+	<input class="form-control" type="text" name="name" ng-model="$ctrl.setting.company_name" required>
+	<div ng-show="form.name.$touched && form.name.$invalid">
+		<span ng-show="form.name.$error.required">Setting name is required</span>
+	</div>
+</div>
+<div class="form-group">
+	<label>Téléphone</label>
+	<input class="form-control" type="text" name="phone" ng-model="$ctrl.setting.phone" maxlength="8" required>
+	<div ng-show="form.phone.$touched && form.phone.$invalid">
+		<span ng-show="form.phone.$error.required">Setting phone number is required</span>
+	</div>
+</div>
+<div class="form-group">
+	<label>Email</label>
+	<input class="form-control" type="email" name="email" ng-model="$ctrl.setting.email" required>
+	<div ng-show="form.email.$touched && form.email.$invalid">
+		<span ng-show="form.email.$error.required">Setting email adresse is required</span>
+		<span ng-show="form.email.$error.email">Valid email adresse is required</span>
+	</div>
+</div>
+<div class="form-group">
+	<label>Adresse</label>
+	<textarea class="form-control" cols="5" rows="5" name="adresse" ng-model="$ctrl.setting.adresse" required>
+	</textarea>
+	<div ng-show="form.adresse.$touched && form.adresse.$invalid">
+		<span ng-show="form.adresse.$error.required">adresse is required</span>
+	</div>
+</div>
