@@ -1,24 +1,27 @@
-<h1>Amina</h1>
-<div id="wizard-container">
-            
-  <div id="wizard-step-container">
-  	<div class="progress">
-		  <div class="progress-bar bg-success" role="progressbar" style="width: {{$ctrl.pourcentage}}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-		</div>
-  </div>
-
-  <div id="wizard-content-container">
-    <ng-include src="$ctrl.getStepTemplate()"></ng-include>
-  </div>
-  
-  <div id="wizard-navigation-container">
-    <div class="pull-right">
-      <span class="btn-group">
-        <button ng-disabled="$ctrl.currentStep <= 1" class="btn btn-default" name="previous" type="button" ng-click="$ctrl.gotoStep($ctrl.currentStep - 1)"><i class="fa fa-arrow-left"></i> Retour</button>
-        <button ng-disabled="$ctrl.currentStep >= $ctrl.steps.length" class="btn btn-primary" name="next" type="button" ng-click="$ctrl.gotoStep($ctrl.currentStep + 1)">Suivant<i class="fa fa-arrow-right"></i></button>
-      </span>
-      <button ng-disabled="$ctrl.currentStep != $ctrl.steps.length" class="btn btn-success" name="next" type="button" ng-click="$ctrl.save()"> <i class="fa fa-floppy-o"></i> Enregistrer</button>
+<section id="main">
+  <h1 class="m-2 p-2">Amina</h1>
+  <div id="wizard-container" class="m-2">
+              
+    <div id="wizard-step-container" class="m-2">
+      <p>{{$ctrl.currentStep}} sur {{$ctrl.steps.length}} étapes</p>
+    	<div class="progress">
+  		  <div class="progress-bar bg-success" role="progressbar" style="width: {{$ctrl.pourcentage}}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  		</div>
     </div>
-  </div>
+
+    <div id="wizard-content-container" class="card p-4 m-2">
+      <ng-include src="$ctrl.getStepTemplate()"></ng-include>
+    </div>
+    
+    <div class="m-2 id="wizard-navigation-container">
+      <div class="pull-right">
+        <span class="btn-group">
+          <button ng-disabled="$ctrl.currentStep <= 1" class="btn btn-default" name="previous" type="button" ng-click="$ctrl.gotoStep($ctrl.currentStep - 1)"><i class="fa fa-arrow-left"></i> Retour</button>
+          <button ng-disabled="$ctrl.currentStep >= $ctrl.steps.length" class="btn btn-primary" name="next" type="button" ng-click="$ctrl.gotoStep($ctrl.currentStep + 1)">Suivant<i class="fa fa-arrow-right"></i></button>
+        </span>
+        <button ng-disabled="$ctrl.currentStep != $ctrl.steps.length" class="btn btn-success" name="next" type="button" ng-click="$ctrl.save()"> <i class="fa fa-floppy-o"></i> Enregistrer</button>
+      </div>
+    </div>
 
   </div>
+</section>

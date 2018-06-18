@@ -66,6 +66,20 @@
       });
     };
 
+    var setReport = function( list, callback ){
+      db.report.query().$promise.then( function( reports ){
+        if (reports.length == 0 ) {
+          angular.forEach( list, function( report, key) {
+            db.report.create( report ).$promise.then( function( response ){
+              if (callback) {
+                callback( response );
+              }
+            });
+          });
+        }
+      });
+    };
+
     ctrl.$onInit = function(){
 
       var permissions = [
@@ -120,10 +134,17 @@
         "sysadmin" : true
       };
 
+      var report = [{
+        "name" : "Profit and lost", 
+        "description" : "A profit and loss statement (P&L) is a financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time", 
+        "template_url" : "report/profit_and_lost.template.html"
+      }];
+
 
       //permissions
       setPermissions( permissions, role, function( role ){
         setRole( role );
+        setReport( report );
       });
 
       ctrl.roles = db.role.query();
