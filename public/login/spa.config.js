@@ -47,8 +47,15 @@ angular.
   ] )
   .run( [
     '$rootScope' , '$location' , '$window'      , '$http' , 
-    'amMoment'   , '$cookieStore' , 'APP_CONFIG',
-    function run( $rootScope, $location, $window, $http, amMoment, $cookieStore, APP_CONFIG  ) {
+    'amMoment'   , '$cookieStore' , 'APP_CONFIG', 'db',
+    function run( $rootScope, $location, $window, $http, amMoment, $cookieStore, APP_CONFIG, db  ) {
+
+      db.setting.query().$promise.then( function( setting_map ){
+        if ( setting_map.length == 0 ) {
+          $window.location.href = '/startup';
+        }
+      });  
+
         amMoment.changeLocale( 'fr' );
         // keep user logged in after page refresh
         $rootScope._user = $cookieStore.get( APP_CONFIG.TOKEN ) || null;

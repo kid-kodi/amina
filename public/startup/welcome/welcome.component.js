@@ -39,7 +39,7 @@
     ctrl.save = function() {
       db.user.create( ctrl.user ).$promise.then( function(){});
       db.setting.create( ctrl.setting ).$promise.then( function(){});
-      $window.location.href = '/login';
+      $window.location.href = '/';
     }
 
     var setPermissions = function( list, role, callback ){

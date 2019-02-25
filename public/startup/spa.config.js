@@ -24,7 +24,7 @@ angular.
     function run( $route, $rootScope, $location, $window, db ) {
       db.setting.query().$promise.then( function( setting_map ){
         if ( setting_map.length > 0 ) {
-          //$window.location.href = '/login';
+          $window.location.href = '/login';
         }
       });      
     }
