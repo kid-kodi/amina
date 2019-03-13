@@ -36,6 +36,13 @@
 			}
 
 		}
+
+		ctrl.$onInit = function(){
+			if( !ctrl.item._id ){
+				ctrl.item = { cost : 0, quantity : 1 };
+			};
+		}
+
 	}
 
 	angular

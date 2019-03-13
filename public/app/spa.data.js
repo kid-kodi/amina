@@ -127,8 +127,19 @@ angular.
        });
       })();
 
+      var message = (function(){
+        return $resource('/message', {}, {
+            query  : { method: 'GET', url: '/message/list', isArray: true },
+            create : { method: 'POST', url: '/message/create' },
+            get    : { method: 'GET', url: '/message/read/:id', params : { id : 'id'}},
+            remove : { method: 'DELETE', url: '/message/delete/:id', params : { id : 'id'}},
+            update : { method: 'POST', url: '/message/update/:id', params : { id : 'id'}}
+       });
+      })();
+
       return {
         customer   : customer,
+        message    : message,
         item       : item,
         supplier   : supplier,
         sale       : sale,

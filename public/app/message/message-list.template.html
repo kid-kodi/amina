@@ -1,0 +1,65 @@
+<div class="panel">
+	<div class="bar">
+		<h3 class="title">Messages</h3>
+		<div>
+			<button class="btn btn-success" ng-click="$ctrl.editMessage()">Nouveau message</button>
+		</div>
+	</div>
+	<div class="main">
+		<div class="row">
+	    <div class="col-sm-2" id="message-nav">
+	      <div class="message-nav-menu">
+	      	<ul>
+	      		<li>
+	      			<a href="" ng-click="$ctrl.selected = null">Tous les messages</a>
+	      		</li>
+	      	</ul>
+	      </div>
+	      <div class="message-nav-contact">
+	      	<div>
+	      		<input type="text" name="" class="form-control" placeholder="Rechercher" ng-model="$ctrl.search.$">
+	      		<br>
+	      	</div>
+	      	<div ng-repeat="c in $ctrl.customers|filter:$ctrl.search">
+	      		
+	      		<div ng-click="$ctrl.selected = c" class="media" ng-class="c.selected ? 'selected' : ''">
+				  <img src="../images/default_profile.png" class="align-self-start mr-3" alt="...">
+				  <div class="media-body">
+				    <h5>{{c.name}}</h5>
+				    <p>{{c.email}}</p>
+				  </div>
+				</div>
+
+	      	</div>
+	      </div>
+	    </div>
+	    <div class="col-sm-10" id="message-content">
+	      <table class="table">
+	      	<tr ng-class="m.status == 0 ? 'unsent' : 'sent'" id="message" ng-repeat="m in $ctrl.list | filter:{contact:$ctrl.selected.email}" ng-click="$ctrl.editMessage( m )">
+	      		<td>
+	      			{{m.contact}}
+	      		</td>
+	      		<td>
+	      			{{m.body}}
+	      		</td>
+	      		<td>
+	      			{{m.created_at}}
+	      		</td>
+	      		<td>
+	      			{{m.status}}
+	      		</td>
+	      	</tr>
+	      </table>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.editMode">
+	<div ng-switch-when="true">
+		<message-edit 
+		message="$ctrl.message" 
+		on-close="$ctrl.editMode = false"
+		on-save="$ctrl.update( message )"></message-edit>
+	</div>
+</div>

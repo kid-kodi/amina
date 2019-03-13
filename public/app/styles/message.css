@@ -1,0 +1,27 @@
+#message-nav{}
+#message-nav-menu{}
+#message-nav-contact{}
+
+.message-nav-contact .media img{
+	width: 64px;
+	height: 64px;
+}
+
+.media{
+	padding: 15px;
+}
+
+.media.selected{
+	background: #ccc;
+	font-weight: bold;
+}
+
+.media.selected *{
+	font-weight: bold;
+}
+
+#message-content{}
+
+#message-content .unsent{
+	font-weight: bold;
+}

@@ -16,6 +16,7 @@ var
   http       = require( 'http'         ),
   express    = require( 'express'      ),
   routes     = require( './lib/routes' ),
+  jobs       = require( './lib/jobs' ),
   bodyparser = require('body-parser'   ),
   busboy     = require('connect-busboy'),
 
@@ -47,6 +48,7 @@ app.configure( 'production', function () {
 });
 
 routes.configRoutes( app, server );
+jobs.start();
 // -------------- END SERVER CONFIGURATION ----------------
 
 // ----------------- BEGIN START SERVER -------------------

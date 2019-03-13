@@ -1,0 +1,65 @@
+<div class="panel">
+	<div class="bar">
+		<div>
+			<h3 class="title">{{$ctrl.message.subject}}</h3>
+			<a href="#/message">back to message list</a>
+		</div>
+		<div class="d-flex align-items-center">
+			<h3 class="text-primary" ng-show="$ctrl.message.status == 1">Envoyé</h3>
+			<h3 class="text-danger" ng-show="$ctrl.message.status == 2">Supprimer</h3>
+            <h3 class="text-danger" ng-show="$ctrl.message.status == 0">En cour</h3>
+		</div>
+		<div class="d-flex align-items-center">
+			<button class="btn btn-secondary" ng-click="$ctrl.print()">Print</button>
+			<!-- Example split danger button -->
+			<div class="btn-group" ng-show="$ctrl.message.status == 0">
+			  <button type="button" class="btn btn-danger" ng-click="$ctrl.save()">Validate and close</button>
+			  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <span class="sr-only">Toggle Dropdown</span>
+			  </button>
+			  <div class="dropdown-menu dropdown-menu-right">
+			    <a class="dropdown-item" href="" ng-click="$ctrl.dismiss()">Cancel</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div>
+            <table class="table table-striped table-bmessageed">
+                <thead>
+                    <tr>
+                        <th>Product / Service</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price ( F.CFA )</th>
+                        <th>Total ( F.CFA )</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in $ctrl.message.items">
+                        <td>
+                        	<label>{{item.item_name}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.description}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.quantity}}</label>
+                        </td>
+                        <td>
+                        	<label>{{item.price}}</label>
+                        </td>
+                        <td>
+                            {{item.quantity * item.price | number}}
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="3"></td>
+                    	<td>Total</td>
+                    	<td>{{$ctrl.message.amount | number}} F.CFA</td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+</div>

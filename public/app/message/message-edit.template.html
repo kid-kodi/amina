@@ -1,0 +1,35 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nouveau message client</h5>
+        <button type="button" class="close" ng-click="$ctrl.close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <form name="form" novalidate>
+            <div class="mb-3">
+                <input type="email" class="form-control" name="email" ng-model="$ctrl.message.contact" placeholder="To">
+                <div ng-show="form.email.$touched && form.email.$invalid">
+                    <span class="text-danger" ng-show="form.email.$error.required">email adresse est requis</span>
+                    <span class="text-danger" ng-show="form.email.$error.email">Une email adresse valide est requise</span>
+                </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" ng-model="$ctrl.message.subject" placeholder="Subject">
+            </div>
+            <div class="mb-3">
+                <textarea style="width:100%;" rows="10" ng-model="$ctrl.message.body"></textarea>
+            </div>
+        </form>
+
+      </div>
+      <div class="modal-footer" ng-hide="$ctrl.message.status == 1">
+        <button ng-disabled="form.$invalid" class="btn btn-primary" ng-click="$ctrl.save()">Enregistrer</button>
+        <button type="button" class="btn btn-secondary" ng-click="$ctrl.close()">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

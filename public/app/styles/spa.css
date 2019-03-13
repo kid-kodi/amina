@@ -16,10 +16,24 @@
   .title{font-weight: 400;/* padding: 0 20px; */height: 40px;line-height: 40px;}
 /** End reset */
 
+/* Define the "system" font family */
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".-apple-system"), local(".BlinkMacSystemFont"), local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+/* Now, let's apply it on an element */
+/*body {
+  font-family: "Geogrotesque","Calibri", !important;
+}*/
+
 /** Begin standard selectors */
   body {
+        /*font-family: Slack-Circular-Pro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;*/
     /*font : 13px 'Raleway', Verdana, Helvetica, Arial, sans-serif;*/
-    font: 15px/1.25 "Helvetica Neue","Segoe UI",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font: 15px/1.25 "system", "Helvetica Neue","Segoe UI",Helvetica,Arial,"Lucida Grande",sans-serif;
     color            : #444;
     background-color : #fafafc!important;
   }

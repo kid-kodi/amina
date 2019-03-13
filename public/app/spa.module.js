@@ -23,6 +23,7 @@ angular.module('spa', [
   'settingApp',
   'profilApp',
   'topnavApp',
-  'dashboardApp'
+  'dashboardApp',
+  'messageApp'
   ]
 );

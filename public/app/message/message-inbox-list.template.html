@@ -1,0 +1,84 @@
+<div>
+	<div ng-show="$ctrl.list.length > 0">
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		      	<h3>Impayé</h3>
+				<span>{{$ctrl.list | filter:{status:0} | sumOfValue:'amount' | number}} F.CFA</span>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <h3>Payé</h3>
+				<span>{{$ctrl.list | filter:{status:1} | sumOfValue:'amount' | number}} F.CFA</span>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="row pb-3">
+			<div class="col-sm-6">
+				<input class="form-control" type="text" placeholder="Search a sale" ng-model="$ctrl.search.$">
+			</div>
+			<div class="col-sm-6 d-flex justify-content-end">
+				<select class="form-control" ng-model="$ctrl.search.status">
+					<option value="">Tout</option>
+					<option value="0">En attente</option>
+					<option value="1">Payé</option>
+					<option value="2">Annulé</option>
+					<option value="3">Partiel</option>
+				</select>
+			</div>
+		</div>
+		<div id="exportable">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>NO.</th>
+						<th>Client</th>
+						<th>Reste à payé</th>
+						<th>Montant</th>
+						<th>Statut</th>
+						<th class="last">
+							Actions
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
+						<td>{{c.created_at}}</td>
+						<td>{{c.number}}</td>
+						<td>
+							{{c.customer_name}}
+						</td>
+						<td>{{c.balance | number}} F.CFA</td>
+						<td>{{c.amount | number}} F.CFA</td>
+						<td>
+							<b ng-show="{{c.status==0}}">En attente</b>
+							<b ng-show="{{c.status==1}}">Payé</b>
+							<b ng-show="{{c.status==2}}">Annulé</b>
+							<b ng-show="{{c.status==3}}">Partiel</b>
+						</td>
+						<td class="last">
+							<a href="#/message/sale/{{c._id}}">
+								<span ng-show="{{c.status==0}}"> Effectué un paiement</span>
+								<span ng-show="{{c.status==1}}"> Details</span>
+								<span ng-show="{{c.status==2}}"> Annulé</span>
+								<span ng-show="{{c.status==3}}"> Details</span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div ng-show="$ctrl.list.length == 0">
+		<div class="empty-list">
+			<h3 class="text-center">Pas de vente</h3>
+		</div>
+	</div>
+</div>

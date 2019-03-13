@@ -50,8 +50,8 @@
 					<td>
 						{{c.customer_name}}
 					</td>
-					<td>{{c.balance}} F.CFA</td>
-					<td>{{c.amount}} F.CFA</td>
+					<td>{{c.balance | number}} F.CFA</td>
+					<td>{{c.amount | number}} F.CFA</td>
 					<td>
 						<b ng-show="{{c.status==0}}">En attente</b>
 						<b ng-show="{{c.status==1}}">Payé</b>
@@ -72,6 +72,7 @@
 <div class="panel" ng-show="$ctrl.list.length == 0">
 	<div class="empty-list">
 		<h3 class="text-center">Pas de vente</h3>
+		<a class="btn btn-success" ng-click="$ctrl.editMode = true" href="">Nouvelle vente</a>
 	</div>
 </div>
 

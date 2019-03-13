@@ -16,30 +16,32 @@ header{
 	top        : 0;
 	left       : 0;
 	right      : 0;
-	height     : 50px; 
+	height     : 50px;
 	padding    : 0 10px;
-	color      : #fff;
-	background : #0078D7; 
-	/*background : rgba(0, 0, 0, 0.4);*/
+	color: #fff !important;
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);
 }
 
 header .logo h1{
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     font-size: 18px;
     font-weight: 600;
-    margin: 0 7px;
+    margin: 0 0;
+    /* padding: 0 0 0 30px; */
 }
 
 header .nav a{
-	color : #fff;
-    height: 50px;
-    display: flex;
-    align-items: center;
+	color: #fff;
+	height: 50px;
+	display: flex;
+	align-items: center;
 }
 
 header .nav a:hover{
 	color : #fff;
-	background : #005A9E;
+	background : #000;
+	background: rgba(0, 0, 0, 0.6);
 }
 
 header .nav a i{
@@ -95,21 +97,24 @@ nav li{
 
 nav li a{
 	color: #333;
-	padding: 0.8rem 1rem !important;
+	padding: 0.8rem 0 1rem 30px !important;
 }
 
 nav li.active{
-	border-left: 3px solid #2B88D8; 
-	background-color: #C7E0F4;
-    color: white;
+	border-left: 5px solid #28a745;
+	/* background-color: #28a745; */
+	color: white;
+	font-size: 15px;
 }
 
 nav li.active a{
-	color: #777;
+	color: #000;
+	background-color: rgba(0,0,0,0.1);
 }
 
 nav li a:hover{
-	color: #777;
+	color: #000;
+	background-color: rgba(0,0,0,0.1);
 }
 
 main{
@@ -128,10 +133,30 @@ main{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* height: 50px; */
+	height: 50px;
+	margin-bottom: 20px;
+	padding: 0 30px;
 }
+
+.headerbar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+.footerbar{
+	display: flex;
+	align-items: right;
+	justify-content: space-between;
+	height: 50px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
 .bar .title{
-	color: #0078D7;
+	/* color: #0078D7; */
 	margin: 0;
 }
 
@@ -139,7 +164,7 @@ main{
 	margin-top: 20px;
 }
 .tabbable .tab-content{
-	padding: 25px 0;
+	padding:  30px;
 	background: #fff;
 	border: 1px solid #fff;
 }
@@ -196,7 +221,7 @@ table th{	text-transform: uppercase;
 }
 
 .empty-list h3{
-	color: #0078D7;
+	color: #000;
     font-size: 32px;
 }
 
@@ -207,4 +232,9 @@ table th{	text-transform: uppercase;
 
 .card{
 	margin: 15px 0;
+}
+
+.form-control-static{
+	padding: 10px 0;
+	margin: 0 !important;
 }

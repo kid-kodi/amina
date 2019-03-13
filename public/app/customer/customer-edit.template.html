@@ -20,36 +20,36 @@
 		          <input type="text" class="form-control" ng-model="$ctrl.customer.last_name">
 		        </div>
 		      </div>
-					<div class="mb-3">
-						<label for="name">Raison sociale<span class="text-danger">*</span></label>
-						<input class="form-control" type="text" name="name" ng-model="$ctrl.customer.name" required>
-						<div ng-show="form.name.$touched && form.name.$invalid">
-							<span class="text-danger" ng-show="form.name.$error.required">Raison sociale est requis</span>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label for="ncc">NCC<span class="text-danger"></span></label>
-						<input class="form-control" type="text" name="ncc" ng-model="$ctrl.customer.ncc">
-						<div ng-show="form.ncc.$touched && form.ncc.$invalid">
-							<span class="text-danger" ng-show="form.ncc.$error.required">Client ncc est requis</span>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label for="phone">Telephone <span class="text-danger"></span></label>
-						<input type="text" class="form-control" name="phone" ng-model="$ctrl.customer.phone" maxlength="8">
-						<div ng-show="form.phone.$touched && form.phone.$invalid">
-							<span class="text-danger" ng-show="form.phone.$error.required">Téléphone est requis</span>
-						</div>
-					</div>
-					<div class="mb-3">
-						<label for="email">Email <span class="text-danger"></span></label>
-						<input type="email" class="form-control" name="email" ng-model="$ctrl.customer.email">
-						<div ng-show="form.email.$touched && form.email.$invalid">
-							<span class="text-danger" ng-show="form.email.$error.required">email adresse est requis</span>
-							<span class="text-danger" ng-show="form.email.$error.email">Une email adresse valide est requise</span>
-						</div>
-					</div>
-				</form>
+			<div class="mb-3">
+				<label for="name">Raison sociale<span class="text-danger">*</span></label>
+				<input class="form-control" type="text" name="name" ng-model="$ctrl.customer.name" required>
+				<div ng-show="form.name.$touched && form.name.$invalid">
+					<span class="text-danger" ng-show="form.name.$error.required">Raison sociale est requis</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="ncc">NCC<span class="text-danger"></span></label>
+				<input class="form-control" type="text" name="ncc" ng-model="$ctrl.customer.ncc">
+				<div ng-show="form.ncc.$touched && form.ncc.$invalid">
+					<span class="text-danger" ng-show="form.ncc.$error.required">Client ncc est requis</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="phone">Telephone <span class="text-danger"></span></label>
+				<input type="text" class="form-control" name="phone" ng-model="$ctrl.customer.phone" maxlength="8">
+				<div ng-show="form.phone.$touched && form.phone.$invalid">
+					<span class="text-danger" ng-show="form.phone.$error.required">Téléphone est requis</span>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="email">Email <span class="text-danger"></span></label>
+				<input type="email" class="form-control" name="email" ng-model="$ctrl.customer.email">
+				<div ng-show="form.email.$touched && form.email.$invalid">
+					<span class="text-danger" ng-show="form.email.$error.required">email adresse est requis</span>
+					<span class="text-danger" ng-show="form.email.$error.email">Une email adresse valide est requise</span>
+				</div>
+			</div>
+		</form>
 
       </div>
       <div class="modal-footer">
