@@ -28,7 +28,7 @@ header .logo h1{
     font-size: 18px;
     font-weight: 600;
     margin: 0 0;
-    /* padding: 0 0 0 30px; */
+    padding: 0 0 0 25px;
 }
 
 header .nav a{
@@ -49,21 +49,80 @@ header .nav a i{
 }
 
 header .nav .dropdown-menu{
-	padding: 0 !important;
-	border-radius: 0;
+	padding: 20px 0 0 0 !important;
+	/* border-radius: 0; */
+}
+
+.dropdown .menu{
+	position: relative;
+	width: 600px;
+}
+
+.menu ul {
+	position: relative !important;
+	list-style: none;
+	margin: 5px;
+	padding: 0;
+	border: none !important;
+}
+
+.menu ul li{
+	margin: 0;
+	padding: 0;
+	border: none !important;
+}
+
+
+.dropdown .title {
+    font-weight: 400;
+    color: #393A3D;
+    padding: 10px 34px 15px 34px;
+    white-space: normal;
+    line-height: 28px;
+}
+
+.dropdown .subTitle {
+    font-weight: 600;
+    color: #393A3D;
+    padding-left: 15px;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+div.table{
+	display: table;
+	width: auto;
+	table-layout: fixed;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+div.table .tableRow {
+    display: table-row;
+    vertical-align: top;
+}
+
+div.table .tableCell {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 19px;
 }
 
 header .nav .dropdown-menu a{
-	font-size: 15px;
+	font-size: 14px;
 	color : #005A9E;
 	background : #fff;
-	height: 40px;
+	height: 25px;
 	padding: 10px 10px;
 }
 
 header .nav .dropdown-menu a:hover{
     background-color: #C7E0F4;
     color: white;
+    font-size: 14px;
+	height: 25px;
+	padding: 10px 10px;
 }
 
 .content{
@@ -135,7 +194,7 @@ main{
 	justify-content: space-between;
 	height: 50px;
 	margin-bottom: 20px;
-	padding: 0 30px;
+	/* padding: 0 30px; */
 }
 
 .headerbar{
@@ -156,8 +215,10 @@ main{
 }
 
 .bar .title{
+	font-weight: 200;
+	font-size: 25px !important;
 	/* color: #0078D7; */
-	margin: 0;
+	margin: 0 !important;
 }
 
 .tabbable{
@@ -197,7 +258,8 @@ main{
 	background: #fff;
 }
 
-table th{	text-transform: uppercase;
+table th{	
+	text-transform: uppercase;
 }
 
 
@@ -222,7 +284,7 @@ table th{	text-transform: uppercase;
 
 .empty-list h3{
 	color: #000;
-    font-size: 32px;
+	font-size: 32px !important;
 }
 
 

@@ -16,11 +16,19 @@
   .title{font-weight: 400;/* padding: 0 20px; */height: 40px;line-height: 40px;}
 /** End reset */
 
+
+h1{
+    font-size: 1.5rem !important;
+}
+
+h3{
+    font-size: 1.3rem !important;
+}
+
 /* Define the "system" font family */
 @font-face {
   font-family: system;
   font-style: normal;
-  font-weight: 300;
   src: local(".-apple-system"), local(".BlinkMacSystemFont"), local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
 }
 

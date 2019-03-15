@@ -13,11 +13,20 @@ factory('topnavDB', [ 'DB', 'AlertService', '$cookies',
       .$promise.then( function( role ){
         callback( role );
       });
-    }
+    };
+
+    var setting = function( callback ){
+      db.setting.query().$promise
+      .then( function( result_map ){
+        var setting = result_map[ 0 ];
+        callback( setting );
+      });
+    };
   
     return {
     	getRole : getRole,
-    	user    : user
+    	user    : user,
+      setting : setting
     };
   }
 ]);

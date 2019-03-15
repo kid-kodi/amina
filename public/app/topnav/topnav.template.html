@@ -8,17 +8,42 @@
         <i class="fa fa-envelope"></i>
       </a>
     </li>
-    <li class="nav-item" ng-show="$ctrl.role.sysadmin == true">
-      <a class="nav-link" href="#/setting">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-cog"></i>
       </a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">{{$ctrl.user.email}}</a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#/profil">Your pofile</a>
-        <a class="dropdown-item" href="#/user">Users & roles</a>
-        <a class="dropdown-item" href="/">Logout</a>
+        <div  class="menu">
+          <h3 class="title">{{$ctrl.setting.company_name}}</h3>
+          <div>
+            <div class="table">
+              <div class="tableRow">
+                <div class="tableCell" ng-show="$ctrl.role.sysadmin == true">
+                  <h4 class="subTitle">Votre entreprise</h4>
+                  <ul>
+                    <li>
+                      <a class="dropdown-item" href="#/setting">Paramétrage</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#/user">Users & roles</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tableCell">
+                  <h4 class="subTitle">{{$ctrl.user.email}}</h4>
+                  <ul>
+                    <li>
+                      <a class="dropdown-item" href="#/profil">Profile utilisateur</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/">Déconnexion</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
   </ul>
