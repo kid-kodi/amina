@@ -12,6 +12,7 @@ factory('profilDB', [ 'DB', 'AlertService', '$cookies',
       db.user.get({id:user.id}).$promise
       .then( function( result_map ){
         var profil = result_map;
+        profil.role = db.role.get({id:profil.role_id});
         callback( profil );
       });
     };
