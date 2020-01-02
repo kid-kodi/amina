@@ -7,6 +7,14 @@ factory('dashboardDB', [ 'DB', 'AlertService', '$cookies',
     .replace(/T/, ' ').replace(/\..+/, '').slice(0,10);
 
     var user = $cookies.getObject( 'inchallah' ) || {};
+    
+    var get_profil = function( callback ){
+      db.user.get({id:user.id}).$promise
+      .then( function( result_map ){
+        var profil = result_map;
+        callback( profil );
+      });
+    };
 
     var get_data = function( callback ){
       db.transaction.query().$promise
@@ -28,8 +36,8 @@ factory('dashboardDB', [ 'DB', 'AlertService', '$cookies',
     };
 
     return {
-      user     : user,
-      get_data : get_data
+      get_profil : get_profil,
+      get_data   : get_data
     };
   }
 ]);

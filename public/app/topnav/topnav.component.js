@@ -16,6 +16,7 @@
 			});
 
 			topnavDB.setting( function( setting_map ){
+				console.log( 'setting_map' );
 				console.log( setting_map );
 				ctrl.setting  = setting_map;
 			});

@@ -1,6 +1,6 @@
 (function() {
 	
-	function DashboardController( $scope, dashboardDB){
+	function DashboardController( $scope, dashboardDB, saleDB){
 		var ctrl = this;
 
 		ctrl.incomes     = 0;
@@ -8,8 +8,16 @@
 		ctrl.expenses    = 0;
 
 
+
 		ctrl.$onInit = function(){
-			ctrl.user = dashboardDB.user;
+			dashboardDB.get_profil( function( profil_map ){
+				ctrl.user = profil_map;
+			});
+
+
+			saleDB.get_list( null, function( result_list ){
+				ctrl.sales = result_list;
+			});
 
 			dashboardDB.get_data( function( net_incomes, incomes, expenses ){
 				ctrl.net_incomes = net_incomes;
@@ -23,7 +31,7 @@
 	.module('dashboardApp')
 	.component('dashboard',{
 		templateUrl : 'dashboard/dashboard.template.html',
-		controller : ['$scope', 'dashboardDB', DashboardController]
+		controller : ['$scope', 'dashboardDB', 'saleDB', DashboardController]
 	})
 
 })();
