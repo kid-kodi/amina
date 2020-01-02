@@ -3,6 +3,7 @@
 	function CustomerListController( customerDB, $routeParams ){
 		var ctrl = this;
 		ctrl.editMode   = false;
+		ctrl.importMode   = false;
 		ctrl.detailMode = false;
 
 		var removeFromArray = function(array, value) {
@@ -38,6 +39,7 @@
 			ctrl.customer   = null;
 			ctrl.editMode   = false;
 			ctrl.detailMode = false;
+			ctrl.importMode = false;
 
 			customerDB.get_list( $routeParams.list, function( result_list ){
 				ctrl.list = result_list;

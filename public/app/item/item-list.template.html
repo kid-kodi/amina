@@ -1,6 +1,6 @@
 <div class="panel" ng-show="$ctrl.list.length > 0">
 	<div class="bar">
-		<h3 class="title">Produits et services</h3>
+		<h3 class="title">Produits & services</h3>
 		<div>
 			<button class="btn btn-success" ng-click="$ctrl.editItem()">Nouveau produit & service</button>
 		</div>
@@ -8,7 +8,7 @@
 
 	<div class="row mb-2">
 		<div class="col-4">
-			<input class="form-control" type="text" placeholder="Search a sale" ng-model="$ctrl.search">
+			<input class="form-control" type="text" placeholder="Rechercher" ng-model="$ctrl.search">
 		</div>
 	</div>
 	<table class="table">
@@ -16,9 +16,9 @@
 			<tr>
 				<th>Nom</th>
 				<th>Type</th>
-				<th>Price</th>
-				<th>Cost</th>
-				<th>Qty</th>
+				<th>Prix</th>
+				<th>Coût</th>
+				<th>Qté</th>
 				<th class="last">
 					Action
 				</th>
@@ -39,7 +39,7 @@
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
 					  <div class="dropdown-menu dropdown-menu-right">
-					    <a class="dropdown-item" href="" ng-click="$ctrl.editItem( c )">Edit</a>
+					    <a class="dropdown-item" href="" ng-click="$ctrl.editItem( c )">Modifier</a>
 					  </div>
 					</div>
 
@@ -51,8 +51,8 @@
 
 <div class="panel" ng-show="$ctrl.list.length == 0">
 	<div class="empty-list text-center">
-		<h3 class="text-center">No items</h3>
-		<button class="btn btn-success" ng-click="$ctrl.editItem()">New product & service</button>
+		<h3 class="text-center">Aucuns enregistrement</h3>
+		<button class="btn btn-success" ng-click="$ctrl.editItem()">Nouveau produit & service</button>
 	</div>
 </div>
 

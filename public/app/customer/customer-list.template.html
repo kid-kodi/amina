@@ -1,14 +1,38 @@
 <div class="panel" ng-show="$ctrl.list.length > 0">
 	<div class="headerbar">
 		<h3 class="title">Clients</h3>
-		<div>
-			<button class="btn btn-success" ng-click="$ctrl.editCustomer()">Nouveau client</button>
+		<div class="action-buttons">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-success" ng-click="$ctrl.editCustomer()">Nouveau client</button>
+			  <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+			    <span class="sr-only">Toggle Dropdown</span>
+			  </button>
+			  <div class="dropdown-menu dropdown-menu-right">
+			    <a class="dropdown-item" href=""  ng-click="$ctrl.importMode = true">Importer des clients</a>
+			  </div>
+			</div>
+
 		</div>
 	</div>
 	
-	<div class="row mb-2">
-		<div class="col-4">
-			<input class="form-control" type="text" placeholder="Rechercher un client" ng-model="$ctrl.search">
+	<div class="d-flex justify-content-between">
+		<div class="d-flex flex-row p-2">
+			<input class="form-control" type="text" placeholder="Rechercher un client" ng-model="$ctrl.search.name">
+		</div>
+		<div class="d-flex flex-row p-2">
+			<select class="p-2 form-control" name="service" ng-model="$ctrl.search.service">
+				<option value="">Choisir un service</option>
+				<option value="YOPOUGON 1">YOPOUGON 1</option>
+				<option value="YOPOUGON 2">YOPOUGON 2</option>
+				<option value="YOPOUGON 3">YOPOUGON 3</option>
+				<option value="YOPOUGON 4">YOPOUGON 4</option>
+				<option value="YOPOUGON 5">YOPOUGON 5</option>
+			</select>
+			<select class="p-2 form-control" name="regime" ng-model="$ctrl.search.regime">
+				<option value="">Choisir un régime</option>
+				<option value="IMPOT SYNTHETIQUE">IMPOT SYNTHETIQUE</option>
+				<option value="REEL SIMPLIFIE">REEL SIMPLIFIE</option>
+			</select>
 		</div>
 	</div>
 	
@@ -25,7 +49,7 @@
 		<tbody>
 			<tr ng-repeat="c in $ctrl.list | filter:$ctrl.search">
 				<td>{{c.name}}</td>
-				<td>{{c.sales | filter:{status:0} | sumOfValue:'balance' | number}}</td>
+				<td>{{c.sales | sumOfValue:'balance' | number}} F.CFA</td>
 				<td class="last">
 
 					<div class="btn-group">
@@ -59,5 +83,13 @@
 		customer="$ctrl.customer" 
 		on-close="$ctrl.editMode = false"
 		on-save="$ctrl.update( customer )"></customer-edit>
+	</div>
+</div>
+
+<div ng-switch="$ctrl.importMode">
+	<div ng-switch-when="true">
+		<customer-import
+		on-close="$ctrl.importMode = false"
+		on-save="$ctrl.update( customer )"></customer-import>
 	</div>
 </div>

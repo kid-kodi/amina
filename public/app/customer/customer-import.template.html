@@ -1,0 +1,81 @@
+<div class="frame">
+	<div class="frame-header">
+		<h5>Importer des clients</h5>
+		<div>
+			<i class="tableCell leftDivider">
+                <div class="fa fa-help"></div>
+            </i>
+			
+            <i class="tableCell leftDivider" ng-click="$ctrl.close()">
+                <div class="fa fa-close"></div>
+            </i>
+		</div>
+	</div>
+	<div class="frame-content">
+		<div class="progression">
+			<div class="stepProgressionBar">
+				<div class="stepNodesBar">
+					<div class="step currentStep">
+						<div class="stepOrder">1</div>
+						<div class="stepName upperCase">Upload</div>
+					</div>
+					<div class="stepLine" style="width: 45.35%;"></div>
+					<div class="step">
+						<div class="stepOrder">2</div>
+						<div class="stepName upperCase">Map Data</div>
+					</div>
+					<div class="stepLine" style="width: 45.35%;"></div>
+					<div class="step">
+						<div class="stepOrder">3</div>
+						<div class="stepName upperCase">Import</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="scroller stepContainer">
+			<form enctype="multipart/form-data">
+				<input type="file" id="file">
+				<button type="submit" value="submit" ng-click="$ctrl.uploadExcel()">Upload fichier</button>
+			</form>
+			<div>
+				<p>Mapper vos champs de données</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Champs de donnée</td>
+							<td>Vos champs</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="obj in $ctrl.customObject">
+							<td>{{obj.name}}</td>
+							<td>
+								<select ng-model="obj.value">
+									<option value=""></option>
+									<option ng-repeat="col in $ctrl.columns" value="{{col}}">{{col}}</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<table>
+					<thead>
+						<tr>ID</tr>
+						<tr>FULLNAME</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+	<div class="frame-footer">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.close()">Annuler</button>
+		<button ng-disabled="form.$invalid" class="btn btn-success" ng-click="$ctrl.save()">Enregistrer</button>
+	</div>
+</div>

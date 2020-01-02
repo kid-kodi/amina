@@ -14,7 +14,7 @@
 				<label>Nom</label>
 				<input class="form-control" type="text" name="name" ng-model="$ctrl.item.name" required>
 				<div ng-show="form.name.$touched && form.name.$invalid">
-					<span class="text-danger" ng-show="form.name.$error.required">Item name is required</span>
+					<span class="text-danger" ng-show="form.name.$error.required">Item nom est requis</span>
 				</div>
 			</div>
 			<div class="mb-3">
@@ -22,10 +22,10 @@
 				<textarea class="form-control" name="description" ng-model="$ctrl.item.description"></textarea>
 			</div>
 			<div class="mb-3">
-				<label>Price</label>
+				<label>Prix</label>
 				<input class="form-control" type="number" name="price" ng-model="$ctrl.item.price" required>
 				<div ng-show="form.price.$touched && form.price.$invalid">
-					<span class="text-danger" ng-show="form.price.$error.required">Item price is required</span>
+					<span class="text-danger" ng-show="form.price.$error.required">Item prix est requis</span>
 				</div>
 			</div>
 			<div class="mb-3">
@@ -36,16 +36,16 @@
 					<option value="produit">Produit</option>
 				</select>
 				<div ng-show="form.type.$touched && form.type.$invalid">
-					<span class="text-danger" ng-show="form.type.$error.required">Item type is required</span>
+					<span class="text-danger" ng-show="form.type.$error.required">Item type est requis</span>
 				</div>
 			</div>
 			<div class="row" ng-show="$ctrl.item.type == 'produit'">
 				<div class="col-md-6 mb-3">
-					<label>Cost</label>
+					<label>Côut</label>
 					<input class="form-control" type="number" name="cost" ng-model="$ctrl.item.cost">
 				</div>
 				<div class="col-md-6 mb-3">
-					<label>Initial Quantity</label>
+					<label>Quantité Initiale</label>
 					<input class="form-control" type="number" name="quantity" ng-model="$ctrl.item.quantity">
 				</div>
 			</div>

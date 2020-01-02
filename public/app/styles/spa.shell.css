@@ -36,6 +36,7 @@ header .nav a{
 	height: 50px;
 	display: flex;
 	align-items: center;
+	font-size: 25px;
 }
 
 header .nav a:hover{
@@ -205,6 +206,15 @@ main{
 	margin-bottom: 20px;
 }
 
+.action-buttons{
+	display: flex;
+	flex-direction: row;
+}
+
+.action-buttons .btn-group button{
+	margin:0 1px !important;
+}
+
 .footerbar{
 	display: flex;
 	align-items: right;
@@ -299,4 +309,9 @@ table th{
 .form-control-static{
 	padding: 10px 0;
 	margin: 0 !important;
+}
+
+
+.dropdown-item {
+    padding: 0.25rem 1.5rem !important;
 }

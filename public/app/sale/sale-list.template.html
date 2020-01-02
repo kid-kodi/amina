@@ -6,19 +6,27 @@
 		</div>
 	</div>
 	<div class="row">
-	  <div class="col-sm-6">
+	  <div class="col-sm-4">
 	    <div class="card">
 	      <div class="card-body">
-	      	<h3>En attente</h3>
-			<span>{{$ctrl.list | filter:{status:0} | sumOfValue:'amount' | number}} F.CFA</span>
+	      	<h3>TOTAL</h3>
+			<span>{{$ctrl.list | sumOfValue:'amount' | number}} F.CFA</span>
 	      </div>
 	    </div>
 	  </div>
-	  <div class="col-sm-6">
+	  <div class="col-sm-4">
+	    <div class="card">
+	      <div class="card-body">
+	      	<h3>Impayé</h3>
+			<span>{{$ctrl.list | sumOfValue:'balance' | number}} F.CFA</span>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-4">
 	    <div class="card">
 	      <div class="card-body">
 	        <h3>Payé</h3>
-			<span>{{$ctrl.list | filter:{status:1} | sumOfValue:'amount' | number}} F.CFA</span>
+			<span>{{$ctrl.list | sumOfValue:'paid' | number}} F.CFA</span>
 	      </div>
 	    </div>
 	  </div>
@@ -56,6 +64,7 @@
 						<b ng-show="{{c.status==0}}">En attente</b>
 						<b ng-show="{{c.status==1}}">Payé</b>
 						<b ng-show="{{c.status==2}}">Annulé</b>
+						<b ng-show="{{c.status==3}}">Partiel</b>
 					</td>
 					<td class="last">
 						<a href="#/sale/{{c._id}}">

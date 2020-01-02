@@ -15,7 +15,7 @@
 
 		ctrl.save = function(){
 			paymentDB.create( ctrl.payment, function( result_map ){
-				$location.path('/payment');
+				//$location.path('/payment');
 			});
 		};
 

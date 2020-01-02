@@ -2,16 +2,16 @@
 	<div class="bar">
 		<div>
 			<h3 class="title">{{$ctrl.sale.customer.name}}</h3>
-			<a href="#/sale">back to sale list</a>
+			<a href="#/sale">retour à la liste</a>
 		</div>
 		<div class="d-flex align-items-center">
-			<h3 class="text-primary" ng-show="$ctrl.sale.status == 1">PAID</h3>
-			<h3 class="text-danger" ng-show="$ctrl.sale.status == 2">CANCEL</h3>
+			<h3 class="text-primary" ng-show="$ctrl.sale.status == 1">PAYER</h3>
+			<h3 class="text-danger" ng-show="$ctrl.sale.status == 2">ANNULER</h3>
             <h3 class="text-danger" ng-show="$ctrl.sale.status == 0">{{$ctrl.sale.amount | number}} F.CFA</h3>
 		</div>
 		<div class="d-flex align-items-center">
-			<button class="btn btn-secondary" ng-click="$ctrl.print()">Print</button>
-            <a class="btn btn-danger" ng-show="$ctrl.sale.status == 0" href="#/sale/{{$ctrl.sale._id}}/customer/{{$ctrl.sale.customer_id}}">edit</a>
+			<button class="btn btn-secondary" ng-click="$ctrl.print()">Imprimer</button>
+            <a class="btn btn-danger" ng-show="$ctrl.sale.status == 0" href="#/sale/{{$ctrl.sale._id}}/customer/{{$ctrl.sale.customer_id}}">Modifer</a>
 		</div>
 	</div>
 	<div class="main">
@@ -19,10 +19,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Product / Service</th>
+                        <th>Produit / Service</th>
                         <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price ( F.CFA )</th>
+                        <th>Quantité</th>
+                        <th>Prix ( F.CFA )</th>
                         <th>Total ( F.CFA )</th>
                     </tr>
                 </thead>

@@ -53,6 +53,8 @@ h3{
     font-weight : 800;
     color       : #000;
   }
+
+button:focus {outline:0 !important;}
 /** End standard selectors */
 
 /** Begin spa namespace selectors */

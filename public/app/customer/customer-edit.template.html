@@ -10,7 +10,7 @@
       <div class="modal-body">
         
 	      <form name="form" novalidate>
-					<div class="row">
+			<div class="row">
 		        <div class="col-md-6 mb-3">
 		          <label for="first_name">Nom</label>
 		          <input type="text" class="form-control" ng-model="$ctrl.customer.first_name">
@@ -19,7 +19,7 @@
 		          <label for="last_name">Prénoms</label>
 		          <input type="text" class="form-control" ng-model="$ctrl.customer.last_name">
 		        </div>
-		      </div>
+	      	</div>
 			<div class="mb-3">
 				<label for="name">Raison sociale<span class="text-danger">*</span></label>
 				<input class="form-control" type="text" name="name" ng-model="$ctrl.customer.name" required>
@@ -49,6 +49,43 @@
 					<span class="text-danger" ng-show="form.email.$error.email">Une email adresse valide est requise</span>
 				</div>
 			</div>
+			<div class="row">
+		        <div class="col-md-6 mb-3">
+		          <label for="entry_date">Date d'hadésion</label>
+		          <input type="text" class="form-control" ng-model="$ctrl.customer.entry_date">
+		        </div>
+		        <div class="col-md-6 mb-3">
+		          <label for="entry_number">Numéro dadhésion</label>
+		          <input type="text" class="form-control" ng-model="$ctrl.customer.entry_number">
+		        </div>
+	      	</div>
+	      	<div class="mb-3">
+				<label for="service">Service d'assiette <span class="text-danger"></span></label>
+				<select class="form-control" name="service" ng-model="$ctrl.customer.service">
+					<option value="">Choisir un service</option>
+					<option value="YOPOUGON 1">YOPOUGON 1</option>
+					<option value="YOPOUGON 2">YOPOUGON 2</option>
+					<option value="YOPOUGON 3">YOPOUGON 3</option>
+					<option value="YOPOUGON 4">YOPOUGON 4</option>
+					<option value="YOPOUGON 5">YOPOUGON 5</option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="regime">Régime d'imposition <span class="text-danger"></span></label>
+				<select class="form-control" name="regime" ng-model="$ctrl.customer.regime">
+					<option value="">Choisir un régime</option>
+					<option value="IMPOT SYNTHETIQUE">IMPOT SYNTHETIQUE</option>
+					<option value="REEL SIMPLIFIE">REEL SIMPLIFIE</option>
+				</select>
+			</div>
+			<div class="mb-3">
+		        <label for="entry_date">Activité</label>
+		        <input type="text" class="form-control" ng-model="$ctrl.customer.activity">
+	      	</div>
+	      	<div class="mb-3">
+		        <label for="entry_date">Localisation</label>
+		        <input type="text" class="form-control" ng-model="$ctrl.customer.location">
+	      	</div>
 		</form>
 
       </div>

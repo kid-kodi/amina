@@ -32,14 +32,15 @@
 						<td>{{c.balance | number}} F.CFA</td>
 						<td>{{c.amount | number}} F.CFA</td>
 						<td>
-							<b ng-show="c.status==0">Pending</b>
-							<b ng-show="c.status==1">Paid</b>
-							<b ng-show="c.status==2">Cancelled</b>
+							<b ng-show="c.status==0">En attente</b>
+							<b ng-show="c.status==1">Payer</b>
+							<b ng-show="c.status==2">Annuler</b>
+							<b ng-show="c.status==3">Partiel</b>
 						</td>
 						<td class="last">
 							<a ng-show="c.status==0" href="#/customer/{{c.customer_id}}/sale/{{c._id}}">Modifier</a>
 							<a ng-show="c.status==1" href="" ng-click="$ctrl.printSale( c )">Print</a>
-							<b ng-show="c.status==2">Dismiss</b>
+							<b ng-show="c.status==2">Annuler</b>
 						</td>
 					</tr>
 				</tbody>

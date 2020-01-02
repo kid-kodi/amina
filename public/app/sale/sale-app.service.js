@@ -22,6 +22,7 @@ factory('saleDB', [ 'DB', 'AlertService', '$cookies',
       new_number( function( number ){
         sale.number     = number;
         sale.balance    = sale.amount;
+        sale.paid       = 0;
         sale.created_at = today;
         sale.created_by = user.id;
         db.sale.create( sale )

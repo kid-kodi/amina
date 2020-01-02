@@ -3,5 +3,6 @@ angular.module('customerApp', [
 	'customerList',
 	'customerDetail',
 	'customerEdit',
+	'customerImport',
 	'customerSale',
 ]);

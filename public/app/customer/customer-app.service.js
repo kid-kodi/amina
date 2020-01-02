@@ -87,6 +87,7 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
         customer_name : customer.name,
         items         : [],
         balance       : 0,
+        paid          : 0,
         amount        : 0,
         status        : 0
       }

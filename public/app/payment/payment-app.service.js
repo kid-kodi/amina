@@ -1,7 +1,7 @@
 angular.
 module('paymentApp').
-factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
-  function( db, AlertService, $cookies ) {
+factory('paymentDB', [ 'DB', 'AlertService', '$cookies', '$location',
+  function( db, AlertService, $cookies, $location ) {
 
     var today = new Date(Date.now()).toISOString()
     .replace(/T/, ' ').replace(/\..+/, '').slice(0,10);
@@ -28,7 +28,7 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
           updateCustomerBalance( payment.customer_id, payment.amount);
           updateSaleBalance( payment.sale_id, payment.amount);
           if ( result_map.result.ok == 1 ) {
-            AlertService.Success('Payment information saved', false);
+            AlertService.Success('Paiement effectué', false);
           }
           callback( result_map );
         });
@@ -97,10 +97,6 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
               created_by    : user.id,
             });
 
-
-            alert(item.item_id);
-            alert(item.quantity);
-            alert(item.item_type);
             if ( item.item_type == 'produit' ) {
               //update stock
               db.item.get({id:item.item_id}).$promise.then( function( _item ){
@@ -148,7 +144,7 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
               created_by    : user.id,
             });
 
-            alert(item.item_type);
+            //alert(item.item_type);
 
             if ( item.item_type == 'produit' ) {
               //update stock
@@ -159,7 +155,10 @@ factory('paymentDB', [ 'DB', 'AlertService', '$cookies',
             }
           }
         }
-      db.sale.update({id:saleId},{balance:balance,paid:paid, status:status});
+        db.sale.update({id:saleId},{balance:balance,paid:paid, status:status})
+        .$promise.then( function(){
+          $location.path('/payment');
+        });
       });
     };
 
