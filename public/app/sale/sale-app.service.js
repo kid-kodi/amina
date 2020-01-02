@@ -10,6 +10,11 @@ factory('saleDB', [ 'DB', 'AlertService', '$cookies',
     
     var get_list = function( list_type, callback ){
       var _map = {};
+
+      if( !role.sysadmin ){
+        _map = { created_by : user.id };
+      }
+
       db.sale.query( _map ).$promise
       .then( function( result_map ){
         if(callback){
