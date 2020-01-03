@@ -37,6 +37,7 @@
 		}
 
 		ctrl.$onInit = function(){
+			ctrl.users = customerDB.user_list();
 			// var customerId = $routeParams.customerId;
 			// ctrl.customer = customerDB.getCustomer( customerId );
 		}

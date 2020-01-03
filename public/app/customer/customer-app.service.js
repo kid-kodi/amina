@@ -32,7 +32,7 @@ factory('customerDB', [ 'DB', 'AlertService', '$cookies',
 
     var create = function( customer, callback ){
       customer.created_at = today;
-      customer.created_by = user.id;
+      //customer.created_by = user.id;
       customer.overdue    = 0;
       db.customer.create( customer )
       .$promise.then( function( result_map ){
