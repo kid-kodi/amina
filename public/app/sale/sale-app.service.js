@@ -7,20 +7,30 @@ factory('saleDB', [ 'DB', 'AlertService', '$cookies',
     .replace(/T/, ' ').replace(/\..+/, '').slice(0,10);
 
     var user = $cookies.getObject( 'inchallah' ) || {};
-    
+
+
     var get_list = function( list_type, callback ){
-      var _map = {};
+      db.role.get({id:user.role_id})
+      .$promise.then( function( role ){
+        var _map = {};
 
-      if( !role.sysadmin ){
-        _map = { created_by : user.id };
-      }
+        if( !role.sysadmin ){
+          _map = { created_by : user.id };
+        }
 
-      db.sale.query( _map ).$promise
-      .then( function( result_map ){
-        if(callback){
-          callback( result_map );
-        };
+        db.sale.query( _map )
+        .$promise.then( function( result_map ){
+          var sales = [];
+          angular.forEach( result_map, function(sale, key) {
+            sale.customer = db.customer.get({ id:sale.customer_id });
+            sales.push( sale );
+          });
+          if (callback) {
+            callback( sales );
+          }
+        });
       });
+      
     };
 
     var create = function( sale, callback ){
