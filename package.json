@@ -13,7 +13,7 @@
     "jsonwebtoken": "*",
     "mongodb": "2.1.x",
     "muter": "*",
-    "socket.io": "1.x",
+    "socket.io": "2.x",
     "socketio-auth": "*",
     "xlsx": "*",
     "ejs": "~2.4.1",
